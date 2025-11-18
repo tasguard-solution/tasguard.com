@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anointing Tamunowunari-Tasker | AI Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1a1a2e;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00d9ff;
+        }
+
+        /* Hero Section with Profile Picture */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .profile-pic-container {
+            flex-shrink: 0;
+        }
+
+        .profile-pic {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            padding: 50px;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-item h3 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .experience-item h4 {
+            color: #764ba2;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #999;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 3px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: white;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #667eea;
+            border: 1px solid #667eea;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .cert-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(118, 75, 162, 0.2);
+        }
+
+        .cert-card h3 {
+            color: #764ba2;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .cert-id {
+            color: #999;
+            font-size: 14px;
+            font-family: monospace;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #00d9ff;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #00d9ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">AT</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-container">
+            <div class="profile-pic-container">
+                <img src="profile.jpg" alt="Anointing Tamunowunari-Tasker" class="profile-pic">
+            </div>
+            <div class="hero-content">
+                <h1>Anointing Tamunowunari-Tasker</h1>
+                <h2>IBM Certified AI Engineer | Machine Learning Specialist</h2>
+                <p>Information & Communication Engineering graduate with hands-on experience in designing, training, and deploying machine-learning models and automation systems. As Founder & Lead Developer at Tasguard Solutions, I develop enterprise-grade tooling and complete projects using TensorFlow, Keras, PyTorch, and Python-based data pipelines.</p>
+                <div class="cta-buttons">
+                    <a href="projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Tasguard Solutions</h3>
+                <h4>Founder and Lead Developer</h4>
+                <p class="date">August 2025 - Present</p>
+                <ul>
+                    <li>Developed a machine learning model using Python, TensorFlow, and Keras to detect fraud in petroleum plants, improving detection accuracy by 90%</li>
+                    <li>Optimized model performance through feature engineering and data cleaning, reducing processing time by over 80%</li>
+                    <li>Evaluated and fine-tuned the model using advanced metrics, ensuring robustness and reliability in real-world applications</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Ani Alajo</h3>
+                <h4>Business Analyst</h4>
+                <p class="date">November 2025 - Present</p>
+                <ul>
+                    <li>Analyzed key performance metrics per employee, providing actionable solutions that improved overall efficiency by 20%</li>
+                    <li>Projected and analyzed business performance, identifying areas for necessary improvements, resulting in a 20% increase in productivity</li>
+                    <li>Acted as an advisory to the managing director, offering strategic insights that enhanced decision-making processes and business outcomes</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Ani Alajo</h3>
+                <h4>Internal Auditor and Control Officer</h4>
+                <p class="date">August 2025 - October 2025</p>
+                <ul>
+                    <li>Audited branches of the company, ensuring compliance and accuracy in financial records</li>
+                    <li>Developed an in-house enterprise-grade application for reconciliation of business bank accounts, reducing review time by 2 weeks</li>
+                    <li>Enhanced data analysis efficiency by implementing automated reconciliation processes, streamlining financial operations</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>TotalEnergies</h3>
+                <h4>Safety Engineering Intern</h4>
+                <p class="date">March 2023 - August 2023</p>
+                <ul>
+                    <li>Promoted best practices and compliance in offshore safety operations, ensuring adherence to safety standards</li>
+                    <li>Managed databases for issuing personal protective equipment (PPE) and tracking Offshore Safety Permits (OSP), enhancing data accuracy and accessibility</li>
+                    <li>Contributed to safety audits and maintained accurate records of safety gear and credentials, improving audit efficiency by over 50%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Transmission Company of Nigeria</h3>
+                <h4>Engineering Intern</h4>
+                <p class="date">July 2022 - September 2022</p>
+                <ul>
+                    <li>Assisted in the maintenance of heavy-duty power transformers, ensuring operational efficiency and reliability</li>
+                    <li>Participated in diagnostic testing of faulty transformers, identifying and resolving issues to minimize downtime</li>
+                    <li>Monitored field operations and reinforced adherence to electrical safety standards, enhancing safety compliance by 50%</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>Covenant University</h3>
+                <h4>Bachelor of Engineering (B.Eng) - Information and Communication Engineering</h4>
+                <p class="date">Second Class Upper: 3.59/5.0 CGPA</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Brilliant International Secondary School</h3>
+                <h4>W.A.S.S.C.E</h4>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills & Expertise</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <span class="skill-tag">Problem-Solving</span>
+                    <span class="skill-tag">Critical Thinking</span>
+                    <span class="skill-tag">Team Collaboration</span>
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Adaptability</span>
+                    <span class="skill-tag">Attention to Detail</span>
+                    <span class="skill-tag">Initiative</span>
+                    <span class="skill-tag">Independent Learning</span>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C#</span>
+                </div>
+
+                <div class="skill-category">
+                    <h3>AI/ML Technologies</h3>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Keras</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">CNNs</span>
+                    <span class="skill-tag">Embedding</span>
+                    <span class="skill-tag">Tokenization</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">RAG</span>
+                    <span class="skill-tag">LangChain</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2>Licenses & Certifications</h2>
+            
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h3>Authorship</h3>
+                    <p>Bulletin of Electrical Engineering and Informatics</p>
+                    <p class="date">Issued August 2025</p>
+                    <p class="cert-id">ID: 9300/BEEI/A/8/2025</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>IBM AI Engineering Specialization</h3>
+                    <p>IBM</p>
+                    <p class="date">Issued August 2025</p>
+                    <p class="cert-id">ID: SETB575CQNM7</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>Generative AI Language Modeling with Transformers</h3>
+                    <p>IBM</p>
+                    <p class="date">Issued March 2025</p>
+                    <p class="cert-id">ID: E2ZHAZ38VUDK</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>Project: Generative AI Applications with RAG and LangChain</h3>
+                    <p>IBM</p>
+                    <p class="date">Issued August 2025</p>
+                    <p class="cert-id">ID: GQHRZZD2IQL4</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>AI Capstone Project with Deep Learning</h3>
+                    <p>IBM</p>
+                    <p class="date">Issued August 2025</p>
+                    <p class="cert-id">ID: WV6JD30WQ3V1</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>Introduction to Software Engineering</h3>
+                    <p>IBM</p>
+                    <p class="date">Issued December 2024</p>
+                    <p class="cert-id">ID: HICXP33PUEZU</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>Version Control with Git</h3>
+                    <p>Atlassian</p>
+                    <p class="date">Issued July 2025</p>
+                    <p class="cert-id">ID: 4T6CQVV9KVGP</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>📧 anointingtasker2002@gmail.com</p>
+                    <p>📱 +234 902 518 9513</p>
+                    <p>📍 Lagos, Nigeria</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="mailto:anointingtasker2002@gmail.com">Email Me</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anointing Tamunowunari-Tasker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
