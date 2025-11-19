@@ -1,0 +1,20 @@
+[
+    {
+        "id": "0001",
+        "title": "Petroleum Fraud Detection System",
+        "icon": "🛢️",
+        "tags": ["Python", "TensorFlow", "Keras", "Machine Learning"],
+        "description": "Developed an advanced machine learning model to detect fraudulent activities in petroleum plants, achieving 90% detection accuracy. Implemented comprehensive feature engineering and data cleaning processes.",
+        "details_page": "projects/pf.html",
+        "github": "https://github.com/yourusername/petroleum-fraud"
+    },
+    {
+         "id": "0002",
+        "title": "Thoracic Disease Model Performance Review",
+        "icon": "🛢️",
+        "tags": ["Python", "TensorFlow", "Keras", "Machine Learning"],
+        "description": "Developed an advanced machine learning model to detect fraudulent activities in petroleum plants, achieving 90% detection accuracy. Implemented comprehensive feature engineering and data cleaning processes.",
+        "details_page": "projects/tdmpr.html",
+        "github": "https://github.com/yourusername/petroleum-fraud"
+    }
+]
