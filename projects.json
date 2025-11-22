@@ -11,7 +11,7 @@
     {
          "id": "0002",
         "title": "Thoracic Disease Model Performance Review",
-        "icon": "🛢️",
+        "icon": "assets/images/project_images/cards/project1.jpg",
         "tags": ["Python", "TensorFlow", "Machine Learning"],
         "description": "Developed an advanced machine learning model to detect fraudulent activities in petroleum plants, achieving 90% detection accuracy. Implemented comprehensive feature engineering and data cleaning processes.",
         "details_page": "projects/tdmpr.html",
