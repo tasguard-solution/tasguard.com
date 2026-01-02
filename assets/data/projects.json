@@ -1,0 +1,50 @@
+[
+    {
+        "id": "0001",
+        "title": "Sentiment-Based Review Logger",
+        "icon": "assets/images/project_images/cards/image.png",
+        "tags": ["Python", "TensorFlow", "Keras", "Sci-kit Learn"],
+        "description": "This is an AI-powered sentiment analysis system designed to classify user-submitted reviews and log negative feedback for further analysis.",
+        "details_page": "projects/sbrl.html",
+        "github": "https://github.com/Cherryland120"
+    },
+    {
+         "id": "0002",
+        "title": "Thoracic Disease Model Performance Review",
+        "icon": "assets/images/project_images/cards/project1.jpg",
+        "tags": ["Python", "TensorFlow", "Machine Learning"],
+        "description": "Developed an advanced machine learning model to detect fraudulent activities in petroleum plants, achieving 90% detection accuracy. Implemented comprehensive feature engineering and data cleaning processes.",
+        "details_page": "projects/tdmpr.html",
+        "github": "https://github.com/Cherryland120"
+    }
+    ,
+    {
+         "id": "0003",
+        "title": "Stocknest - Inventory Management System",
+        "icon": "assets/images/project_images/cards/project1.jpg",
+        "tags": ["HTML", "CSS", "JavaScript"],
+        "description": "Developed a one page inventory management system for small businesses to track stock levels, orders, and deliveries in real-time.",
+        "details_page": "projects/tdmpr.html",
+        "github": "https://github.com/Cherryland120"
+    }
+    ,
+    {
+         "id": "0004",
+        "title": "Animator Trigger System",
+        "icon": "assets/images/project_images/cards/project1.jpg",
+        "tags": ["C#", "Unity Engine"],
+        "description": "Developed a dynamic way of triggering animations in Unity using C# scripts, allowing for more dynamic and responsive character movements in games.",
+        "details_page": "projects/tdmpr.html",
+        "github": "https://github.com/Cherryland120"
+    }
+    ,
+    {
+         "id": "0005",
+        "title": "Echo Light",
+        "icon": "assets/images/project_images/cards/project1.jpg",
+        "tags": ["C#", "Unity Engine"],
+        "description": "Developed and successfully deployed a demo version of a game. Echo Light is a 2D top-down exploration game where players navigate through a dark environment using scarce light to reveal their surroundings.",
+        "details_page": "projects/tdmpr.html",
+        "github": "https://github.com/Cherryland120"
+    }
+]

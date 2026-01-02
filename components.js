@@ -3,7 +3,7 @@
 function computeBasePath() {
     // Split path into segments, remove empty ones
     const segments = window.location.pathname.split("/").filter(s => s !== "");
-
+    //chrom
     // If we're at root (e.g. /index.html), no '../' needed
     if (segments.length <= 1) return "";
 
@@ -24,6 +24,7 @@ const navbar = `
                 <li><a href="${base}index.html">Home</a></li>
                 <li><a href="${base}projects.html">Projects</a></li>
                 <li><a href="${base}blog.html">Blog</a></li>
+                <li><a href="${base}DemoBuild1/index.html">Game</a></li>
             </ul>
         </div>
     </nav>

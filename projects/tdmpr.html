@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f5f5f5;
+            background: #000729;
         }
 
         /* Navigation */
@@ -29,7 +29,7 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -64,7 +64,7 @@
         /* Back Button */
         .back-button {
             max-width: 1200px;
-            margin: 30px auto 0;
+            margin: 30px 20px;
             padding: 0 20px;
         }
 
@@ -84,7 +84,7 @@
 
         /* Project Header */
         .project-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #000000 0%, #060b2b 100%);
             color: white;
             padding: 80px 20px;
         }
@@ -95,8 +95,19 @@
         }
 
         .project-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
+        width: 100%;
+        height: 200px; /* controls banner height */
+        overflow: hidden; /* crops the image */
+        border-radius: 12px; /* optional */
+        margin-bottom: 30px;
+        }
+        
+        .project-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* key line: crops instead of stretching */
+        object-position: center 80%; /* crop from the center */
+        display: block;
         }
 
         .project-header h1 {
@@ -134,22 +145,36 @@
 
         /* Main Content */
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 60px auto;
             padding: 0 20px;
         }
 
         .content-section {
-            background: white;
+            background: #000000;
             padding: 50px;
             margin-bottom: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
+        .content-image {
+            display: flex;
+            justify-content: center;   /* centers image horizontally */
+            margin: 30px 0;
+        }
+
+        .content-image img {
+            max-width: 400px;          /* cap size */
+            width: 100%;               /* responsive downscale */
+            height: auto;              /* preserve aspect ratio */
+            object-fit: contain;       /* no cropping, no stretching */
+            display: block;
+        }
+
         .content-section h2 {
             font-size: 32px;
-            color: #1a1a2e;
+            color: #b1c2ff;
             margin-bottom: 25px;
             border-bottom: 3px solid #667eea;
             padding-bottom: 15px;
@@ -163,10 +188,11 @@
         }
 
         .content-section p {
-            color: #555;
+            color: #d1d5db;
             font-size: 18px;
             line-height: 1.8;
             margin-bottom: 20px;
+            text-align: justify;
         }
 
         .content-section ul {
@@ -175,7 +201,7 @@
         }
 
         .content-section li {
-            color: #555;
+            color: #d1d5db;
             font-size: 18px;
             margin-bottom: 12px;
         }
@@ -207,10 +233,75 @@
             margin: 0;
         }
 
+        .classification-layout {
+            max-width: fit-content;
+            display: grid;
+            grid-template-columns: 1.75fr 1fr; /* text | image */
+            gap: 40px;
+            align-items: start;
+            margin-top: 30px;
+        }
+        .classification-text{
+            text-align: justify;
+        }
+
+        .classification-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .three-column-layout {  
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .column{
+
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #000e40;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        .subclass-cell {
+            background-color: #e8ecf5;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .metrics-cell {
+            background-color: #f1f2f8;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
         .image-placeholder {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            /*background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);*/
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -267,7 +358,7 @@
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -304,7 +395,7 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
             .project-header h1 {
                 font-size: 32px;
             }
@@ -321,7 +412,16 @@
                 gap: 15px;
                 flex-wrap: wrap;
             }
+
+            .classification-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .classification-image {
+                order: 2; /* image goes below text */
+            }
         }
+
     </style>
 </head>
 <body>
@@ -335,8 +435,11 @@
     <!-- Project Header -->
     <div class="project-header">
         <div class="header-content">
-            <div class="project-icon">🛢️</div>
-            <h1>Petroleum Fraud Detection System</h1>
+            <div class="project-icon">
+                <img src="../assets/images/project_images/projects/thoracic_grid.png"
+                     alt="Petroleum Fraud Detection System">
+            </div>
+            <h1>Development of classification model for thoracic diseases with chest X-ray images using deep convolutional neural network</h1>
             <div class="project-tags">
                 <span class="tag">Python</span>
                 <span class="tag">TensorFlow</span>
@@ -345,16 +448,16 @@
             </div>
             <div class="project-meta">
                 <div class="meta-item">
-                    <span>📅</span>
-                    <span>Completed: August 2025</span>
+                    <span>Published:</span>
+                    <span>August 2025 (BEEI Journal)</span>
                 </div>
                 <div class="meta-item">
-                    <span>🏢</span>
+                    <span>Organization:</span>
                     <span>Tasguard Solutions</span>
                 </div>
                 <div class="meta-item">
-                    <span>👤</span>
-                    <span>Role: Lead Developer</span>
+                    <span>Role:</span>
+                    <span>Researcher Contributor</span>
                 </div>
             </div>
         </div>
@@ -365,56 +468,196 @@
         <!-- Overview Section -->
         <div class="content-section">
             <h2>Project Overview</h2>
-            <p>The Petroleum Fraud Detection System is an advanced machine learning solution designed to identify and prevent fraudulent activities in petroleum plants. This project leverages state-of-the-art deep learning techniques to analyze operational data and detect anomalies that indicate potential fraud.</p>
+            <p>A <b>thoracic disease</b> is a medical condition in the chest wall region. 
+                Accurate thoracic disease diagnosis in patients is critical for effective treatment. 
+                Atelectasis, mass, pneumonia, and pneumothorax are thoracic diseases that can lead to life-threatening conditions if not detected and treated early enough. 
+                When diagnosing these diseases, human expertise can also be susceptible to errors due to fatigue or emotional factors. This research proposes developing a real-time deep learning-based classification model for thoracic diseases.</p>
             
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h4>90%</h4>
-                    <p>Detection Accuracy</p>
-                </div>
-                <div class="stat-card">
-                    <h4>80%</h4>
-                    <p>Processing Time Reduction</p>
-                </div>
-                <div class="stat-card">
-                    <h4>100K+</h4>
-                    <p>Data Points Analyzed</p>
-                </div>
+
+            <h3>What are thoracic diseases?</h3>
+            <p>Thoracic disorders encompass a wide range of potentially life-threatening conditions affecting the
+                heart, lungs, esophagus, mediastinum, chest wall, and great vessels. According to the World Health
+                Organization (WHO), pneumonia is particularly critical among these. Pneumonia, a viral or bacterial infection,
+                is a leading cause of death in children globally, especially in low and middle-income countries. These
+                statistics highlight the urgent need for accurate and accessible diagnostic tools. CXRs are the preferred
+                diagnostic tool for thoracic diseases such as pneumonia and tuberculosis and signs of heart failure like
+                cardiomegaly (enlarged heart), pulmonary edema (fluid in the lungs) and lung cancer indications such as mass
+                and nodules. This is because CXR’s are readily accessible in most healthcare facilities, even in remote or
+                resource-constrained settings. Compared to more advanced imaging techniques like CT scans or MRIs, CXRs
+                offer a cost-effective and low-radiation alternative. However, traditional CXR interpretation relies on the skill
+                and experience of radiologists, who can be susceptible to limitations. Radiologists are not infallible and can
+                make mistakes in diagnosing chest X-rays, especially when dealing with high workload, fatigue, or complex
+                cases requiring more attention and analysis.</p>
+            <div class="content-image">
+                <img src="../assets/images/project_images/projects/packed.png"
+                     alt="Petroleum Fraud Detection System">
             </div>
 
-            <h3>Challenge</h3>
-            <p>Petroleum plants face significant financial losses due to fraudulent activities that are difficult to detect using traditional methods. The challenge was to develop an automated system capable of identifying complex fraud patterns in real-time operational data.</p>
+            <h3>What we did</h3>
 
-            <h3>Solution</h3>
-            <p>I developed a comprehensive machine learning model using Python, TensorFlow, and Keras. The solution involved:</p>
-            <ul>
-                <li>Extensive data collection and preprocessing from multiple petroleum plant sources</li>
-                <li>Advanced feature engineering to extract meaningful patterns from raw operational data</li>
-                <li>Implementation of deep neural networks optimized for anomaly detection</li>
-                <li>Real-time monitoring system integration for immediate fraud alerts</li>
-                <li>Comprehensive testing and validation using historical fraud cases</li>
-            </ul>
-        </div>
+            <div class="classification-layout">
+                <div class = "classification-text">
+                    <p>
+                        We propose developing a real-time deep learning-based classification model for thoracic diseases.
+                        Three deep convolutional neural network (CNN) models: <b>MobileNetV3Large</b>, <b>ResNet50</b>, and <b>EfficientNetB7</b> were evaluated.
+                        thoracic diseases, such as pneumonia, tuberculosis, lung cancer, and pleural effusion. CXRs are relatively
+                        inexpensive, easy to acquire, and non-invasive compared to other imaging techniques like CT and MRI. CXR's were used in this study
+                        for classification of these diseases by 5-way, 4-way, and 3-way.
+                    </p>
+
+                    <div class = "three-column-layout">
+                        <div class = "column">
+                            <p>5 Classes</p>
+                            <ul>
+                                <li>No Finding</li>
+                                <li>Atelectasis</li>
+                                <li>Mass</li>
+                                <li>Pneumonia</li>
+                                <li>Pneumothorax</li>
+                            </ul>
+                        </div>
+                        <div class = "column">
+                            <p>4 Classes</p>
+                            <ul>
+                                <li>No Finding</li>
+                                <li>Atelectasis</li>
+                                <li>Pneumothorax</li>
+                                <li>Pneumonia</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <p>3 Classes</p>
+                            <ul>
+                                <li>No Finding</li>
+                                <li>Atelectasis</li>
+                                <li>Pneumonia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classification-image">
+                    <img src="../assets/images/project_images/projects/concept.png"
+                        alt="Conceptual Framework"></img>
+                </div>
+            </div>
+            <p><b>MobileNetV3Large</b></p>
+            <p>
+                The design of MobileNetV3 incorporates advancements from both MobileNetV2 and a new
+                architecture search technique called NetAdapt, ensuring an optimal balance between computational efficiency
+                and accuracy. Its streamlined architecture is particularly beneficial when handling large medical image
+                datasets, where computational resources and inference speeds are critical. MobileNetV3Large integrates
+                Squeeze-and-Excitation (SE) modules to amplify the representational capacity of its network.
+            </p>
+            <p><b>ResNet50</b></p>
+            <p>
+                ResNet50, short for residual network with 50 layers, and introduced by [14] is one of the most
+                renowned deep learning models due to its exceptional performance in image classification tasks. In the
+                network, each residual block typically consists of three layers: a 1×1 convolution, a 3×3 convolution, and
+                another 1×1 convolution. The output of these layers is then added to the input of the block, forming a shortcut
+                connection that allows gradients to flow directly through the network.
+            </p>
+            <p><b>EfficientNetB7</b></p>
+            <p>
+                EfficientNet's compound scaling algorithm strikes a compromise between network depth, breadth,
+                and resolution. This approach entails simultaneously growing its depth, breadth, and resolution to construct a
+                sequence of models from EfficientNetB0 to EfficientNetB7, with B7 being the largest and most powerful.
+            </p>
+        </div>    
+
 
         <!-- Technical Details Section -->
         <div class="content-section">
             <h2>Technical Implementation</h2>
             
-            <h3>Data Processing Pipeline</h3>
-            <p>The data processing pipeline handles multiple data streams from petroleum plant operations, including transaction logs, sensor data, and operational metrics. The system performs real-time cleaning, normalization, and feature extraction.</p>
+            <h3>Data Sources</h3>
+            <p>The selected images were mutually exclusive from recognized and benchmarked dataset. The <a href = 
+                "https://www.kaggle.com/datasets/nih-chest-xrays/data">NIH
+                Chest X-ray 14 dataset</a> contains over 100,000 frontal-view X-ray images of 32,717 unique patients. The images
+                are labelled with 14 different thoracic disease conditions, making it a significant resource for training and
+                evaluating machine learning models in medical imaging and disease detection. The dataset is widely used for
+                research in radiology and machine learning.
+            </p>
 
             <div class="image-placeholder">
-                [Architecture Diagram - Add your image here]
+                <img src = "../assets/images/project_images/projects/Data_Processing_Pipeline.jpg"></img>
             </div>
 
-            <h3>Model Architecture</h3>
-            <p>The model uses a combination of convolutional neural networks and recurrent layers to capture both spatial and temporal patterns in the data. Key components include:</p>
-            <ul>
-                <li>Multi-layer CNN for feature extraction from operational patterns</li>
-                <li>LSTM layers for temporal sequence analysis</li>
-                <li>Attention mechanisms to focus on critical fraud indicators</li>
-                <li>Custom loss functions optimized for imbalanced fraud detection</li>
-            </ul>
+            <h3>Dataset</h3>
+            <p>The figure below shows the description of the dataset with atelectasis mass, pneumonia, pneumothorax and
+                normal with equal total number of classes, training, validation, and testing data of 1500, 1050, and 300
+                respectively.
+            </p>
+            <table>
+                <thread>
+                    <tr>
+                        <th>Classes</th>
+                        <th>Total number of CXIs/class</th>
+                        <th>Training set</th>
+                        <th>Validation set</th>
+                        <th>Testing set</th>
+                    </tr>
+                </thread>
+                    <tbody>
+                        <td class="subclass-cell">Atelectasis</td>
+                        <td class="metrics-cell">1500</td>
+                        <td>1050</td>
+                        <td>150</td>
+                        <td>300</td>
+                    </tbody>
+                    <tbody>
+                        <td class="subclass-cell">Mass</td>
+                        <td class="metrics-cell">1500</td>
+                        <td>1050</td>
+                        <td>150</td>
+                        <td>300</td>
+                    </tbody>
+                    <tbody>
+                        <td class="subclass-cell">Pneumonia</td>
+                        <td class="metrics-cell">1500</td>
+                        <td>1050</td>
+                        <td>150</td>
+                        <td>300</td>
+                    </tbody>
+                    <tbody>
+                        <td class="subclass-cell">Pneumothorax</td>
+                        <td class="metrics-cell">1500</td>
+                        <td>1050</td>
+                        <td>150</td>
+                        <td>300</td>
+                    </tbody>
+                    <tbody>
+                        <td class="subclass-cell">Normal</td>
+                        <td class="metrics-cell">1500</td>
+                        <td>1050</td>
+                        <td>150</td>
+                        <td>300</td>
+                    </tbody>
+            </table>
+            <p> The layers introduced to the three models architecture were chosen to customize the
+                model for the specific objective of thoracic illness categorization.
+            </p>
+                <ul>
+                    <li><strong>The Flatten() layer</strong> converts the multi-
+                        dimensional output from the base model into a one-dimensional vector. This transition from convolutional
+                        layers to fully connected layers is crucial for preparing the data for classification by the dense layers that follow.</li>
+                    <li><strong>first Dense(256, activation=swish)</strong> layer introduces 256 fully connected neurons with the Swish activation
+                        function which is known for its smooth and non-monotonic nature, allowing the model to learn complex, non-linear data
+                        representations. This enhances the model's ability to capture intricate patterns in the chest X-ray images.</li>
+                    <li>Dropout(0.5) is a regularization approach for avoiding overfitting. Dropout improves model
+                        generalizability to new data by randomly setting 50% of neurons to zero during each training cycle. This is
+                        especially essential in medical imaging jobs since models can quickly recall training data.</li>
+                    <li><strong>Dense Layer (128 units, Swish activation)</strong>: The second Dense(128, activation=swish) layer adds another set of fully connected
+                        neurons, further increasing the model's capacity to learn complex features from the data. The Swish activation
+                        function is again employed here to take advantage of its superior performance in deep learning tasks.</li>
+                    <li><strong>Dropoutlayer (50%)</strong>: another Dropout(0.5) layer is included to maintain the regularization effect, ensuring consistent
+                        overfitting prevention as the model continues to learn.</li>
+                    <li><strong>Output layer</strong>: the final Dense(K, activation="softmax", kernel_regularizer=l2(0.001)) layer produces
+                        probability distributions over the dataset's K classes of thoracic diseases. The SoftMax activation function
+                        ensures that the sum of the output probabilities equals one, allowing for clear and interpretable class
+                        predictions. The L2 regularization helps prevent overfitting by penalizing large weights, ensuring the model
+                        remains robust and generalizable.</li>
+                </ul>
 
             <h3>Technologies Used</h3>
             <ul>
@@ -423,7 +666,13 @@
                 <li><strong>Keras</strong> - High-level neural network API</li>
                 <li><strong>Pandas & NumPy</strong> - Data manipulation and analysis</li>
                 <li><strong>Scikit-learn</strong> - Machine learning utilities</li>
-                <li><strong>Docker</strong> - Containerization for deployment</li>
+            </ul>
+            <h3>Training Environment</h3>
+            <ul>
+                <li>HP Pavilion Laptop 15-cc0xx</li>
+                <li>Microsoft Windows 11 Pro 64-bit</li>
+                <li>Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz with a max clock speed of 2712</li>
+                <li>4-partitioned SSD of 256052966400 bytes Storage (Model: MTFDDAV256TBN-1AR15ABHA)</li>
             </ul>
         </div>
 
@@ -432,48 +681,350 @@
             <h2>Results & Impact</h2>
             
             <h3>Performance Metrics</h3>
-            <p>The system achieved exceptional performance across all key metrics:</p>
-            <ul>
-                <li>Detection accuracy of 90% on validation dataset</li>
-                <li>False positive rate reduced to less than 5%</li>
-                <li>Processing time reduced by over 80% compared to manual review</li>
-                <li>Real-time alerts delivered within 2 seconds of fraud detection</li>
-            </ul>
+            <p>The table below summarizes the performance across all key metrics, classes and models:</p>
+ 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subclass</th>
+                        <th>Metrics</th>
+                        <th>Disease</th>
+                        <th>MobileNetV3Large (%)</th>
+                        <th>ResNet50 (%)</th>
+                        <th>EfficientNetB7 (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 5-way classification -->
+                    <tr>
+                        <td rowspan="16" class="subclass-cell">5-way classification</td>
+                        <td rowspan="1" class="metrics-cell">Accuracy</td>
+                        <td>-</td>
+                        <td>75.72</td>
+                        <td>75.2</td>
+                        <td>73.03</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="metrics-cell">Precision</td>
+                        <td>Atelectasis</td>
+                        <td>55.71</td>
+                        <td>57.91</td>
+                        <td>61.39</td>
+                    </tr>
+                    <tr>
+                        <td>Mass</td>
+                        <td>59.46</td>
+                        <td>60.64</td>
+                        <td>50.29</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>97.01</td>
+                        <td>92.49</td>
+                        <td>93.04</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumothorax</td>
+                        <td>80.32</td>
+                        <td>75.97</td>
+                        <td>69.11</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>94.5</td>
+                        <td>94.40</td>
+                        <td>96.02</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="metrics-cell">Recall</td>
+                        <td>Atelectasis</td>
+                        <td>80.74</td>
+                        <td>67.83</td>
+                        <td>63.39</td>
+                    </tr>
+                    <tr>
+                        <td>Mass</td>
+                        <td>59.66</td>
+                        <td>72.15</td>
+                        <td>57.81</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>94.49</td>
+                        <td>94.02</td>
+                        <td>96.56</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumothorax</td>
+                        <td>46.51</td>
+                        <td>47.22</td>
+                        <td>56.29</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>96.83</td>
+                        <td>92.88</td>
+                        <td>93.66</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="metrics-cell">F1-score</td>
+                        <td>Atelectasis</td>
+                        <td>65.93</td>
+                        <td>62.47</td>
+                        <td>62.37</td>
+                    </tr>
+                    <tr>
+                        <td>Mass</td>
+                        <td>59.56</td>
+                        <td>65.89</td>
+                        <td>53.79</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>95.73</td>
+                        <td>93.24</td>
+                        <td>94.77</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumothorax</td>
+                        <td>58.91</td>
+                        <td>58.24</td>
+                        <td>62.04</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>95.65</td>
+                        <td>93.64</td>
+                        <td>94.82</td>
+                    </tr>
 
-            <h3>Business Impact</h3>
-            <p>The implementation of this fraud detection system resulted in significant business benefits:</p>
-            <ul>
-                <li>Prevented estimated $2M+ in potential fraud losses annually</li>
-                <li>Reduced investigation time from days to minutes</li>
-                <li>Improved compliance with industry regulations</li>
-                <li>Enhanced trust and transparency in operational processes</li>
-            </ul>
+                    <!-- 4-way classification -->
+                    <tr>
+                        <td rowspan="13" class="subclass-cell">4-way classification</td>
+                        <td rowspan="1" class="metrics-cell">Accuracy</td>
+                        <td>-</td>
+                        <td>87.25</td>
+                        <td>87.08</td>
+                        <td>88.08</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="metrics-cell">Precision</td>
+                        <td>Atelectasis</td>
+                        <td>76.76</td>
+                        <td>78.95</td>
+                        <td>76.53</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>97.32</td>
+                        <td>92.15</td>
+                        <td>96.79</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumothorax</td>
+                        <td>79.25</td>
+                        <td>81.17</td>
+                        <td>83.98</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>95.93</td>
+                        <td>97.74</td>
+                        <td>97.05</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="metrics-cell">Recall</td>
+                        <td>Atelectasis</td>
+                        <td>76.48</td>
+                        <td>80.00</td>
+                        <td>87.26</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>96.67</td>
+                        <td>97.9</td>
+                        <td>96.45</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumothorax</td>
+                        <td>79.01</td>
+                        <td>80.43</td>
+                        <td>71.9</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>97.25</td>
+                        <td>91.23</td>
+                        <td>97.05</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="metrics-cell">F1-score</td>
+                        <td>Atelectasis</td>
+                        <td>76.62</td>
+                        <td>79.47</td>
+                        <td>81.54</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>96.99</td>
+                        <td>94.93</td>
+                        <td>96.61</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumothorax</td>
+                        <td>79.13</td>
+                        <td>80.79</td>
+                        <td>77.47</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>96.58</td>
+                        <td>94.38</td>
+                        <td>97.05</td>
+                    </tr>
 
-            <div class="image-placeholder">
-                [Results Dashboard Screenshot - Add your image here]
-            </div>
+                    <!-- 3-way classification -->
+                    <tr>
+                        <td rowspan="10" class="subclass-cell">3-way classification</td>
+                        <td rowspan="1" class="metrics-cell">Accuracy</td>
+                        <td>-</td>
+                        <td>97.44</td>
+                        <td>97.88</td>
+                        <td>96.55</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" class="metrics-cell">Precision</td>
+                        <td>Atelectasis</td>
+                        <td>100</td>
+                        <td>99.66</td>
+                        <td>99.3</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>96.56</td>
+                        <td>97.46</td>
+                        <td>95.03</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>95.69</td>
+                        <td>96.57</td>
+                        <td>95.49</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" class="metrics-cell">Recall</td>
+                        <td>Atelectasis</td>
+                        <td>100</td>
+                        <td>99.65</td>
+                        <td>99.3</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>95.58</td>
+                        <td>96.84</td>
+                        <td>95.67</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>96.65</td>
+                        <td>97.24</td>
+                        <td>94.89</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" class="metrics-cell">F1-score</td>
+                        <td>Atelectasis</td>
+                        <td>100</td>
+                        <td>99.65</td>
+                        <td>99.3</td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>96.07</td>
+                        <td>97.15</td>
+                        <td>95.35</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>96.17</td>
+                        <td>96.9</td>
+                        <td>95.19</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Discussion</h3>
+            <p>Several key insights emerge from the comparison in evaluating the three deep learning models across
+                the 5-way, 4-way, and 3-way classifications. MobileNetV3Large, ResNet50, and EfficientNetB7 demonstrate
+                varying performance levels across different metrics and diseases, providing a comprehensive view of their
+                strengths and weaknesses. These key insights and the comparative analysis of the various models are show in
+                Table 3.</p>
+                <p>For the 5-way classification, which includes diseases such as atelectasis, mass, pneumonia, and
+                pneumothorax, MobileNetV3Large achieves an overall accuracy of 75.72%, slightly outperforming
+                ResNet50's 75.20% but trailing behind EfficientNetB7's 73.03%. Regarding precision, MobileNetV3Large and
+                ResNet50 display close performance in Atelectasis with values of 55.71% and 57.91%, respectively, while
+                EfficientNetB7 excels at 61.39%. However, ResNet50 performs better in precision for diseases like mass and
+                pneumonia than the other two models, with scores of 60.64% and 92.49%, respectively, highlighting its
+                robustness in these specific classifications.</p>
+                <p>The models show improved overall accuracy in the 4-way classification, which omits one disease
+                from the previous set. MobileNetV3Large achieves an accuracy of 87.25%, closely matched by ResNet50 at
+                87.08%, but both are surpassed by EfficientNetB7 at 88.08%. The precision metric for pneumonia is
+                particularly noteworthy, where MobileNetV3Large scores 97.32%, closely followed by EfficientNetB7 at
+                96.79% and ResNet50 at 92.15%, indicating strong performance across the board. For Normal cases, ResNet50
+                stands out with a precision of 97.74%, while MobileNetV3Large and EfficientNetB7 are close behind at
+                95.93% and 97.05%, respectively.</p>
+                <p>In the 3-way classification, which further simplifies the categorisation, all models show significantly
+                higher accuracy and precision. MobileNetV3Large achieves an accuracy of 97.44%, ResNet50 slightly higher
+                at 97.88%, and EfficientNetB7 at 96.55%. Precision for Atelectasis is perfect for MobileNetV3Large and
+                ResNet50, achieving 100%, while EfficientNetB7 is close at 99.30%. Pneumonia precision remains high across
+                all models, with ResNet50 leading at 97.46%, MobileNetV3Large at 96.56%, and EfficientNetB7 at 95.03%.
+                For the Normal classification, ResNet50 again shows superior performance with 96.57% precision, compared
+                to MobileNetV3Large's 95.69% and EfficientNetB7's 95.49%.
+                Generally, MobileNetV3Large and ResNet50 perform closely, with ResNet50 often-showing slightly
+                better precision in more complex classifications. EfficientNetB7, while generally trailing in precision, shows
+                competitive accuracy and robustness across different classification scenarios.</p>
         </div>
 
         <!-- Lessons Learned Section -->
         <div class="content-section">
-            <h2>Lessons Learned</h2>
-            <p>This project provided valuable insights into developing production-ready machine learning systems:</p>
-            <ul>
-                <li><strong>Data Quality</strong> - The importance of comprehensive data cleaning and validation cannot be overstated. Investing time in preprocessing significantly improved model performance.</li>
-                <li><strong>Feature Engineering</strong> - Domain expertise combined with automated feature selection led to better results than purely automated approaches.</li>
-                <li><strong>Model Interpretability</strong> - Providing explainable predictions was crucial for stakeholder buy-in and system trust.</li>
-                <li><strong>Continuous Monitoring</strong> - Implementing monitoring and retraining pipelines ensures the model adapts to evolving fraud patterns.</li>
-            </ul>
+            <h2>Conclusion</h2>
+            <p>Key findings highlighted the superior performance of MobileNetV3Large in terms of computational
+                efficiency and accuracy, particularly when enhanced with transfer learning and attention mechanisms.
+                ResNet50 showed robust performance across different disease classifications, often surpassing the other
+                models in precision for complex classifications. EfficientNetB7 demonstrated competitive accuracy,
+                highlighting its robustness in various classification scenarios.
+                The integration of attention mechanisms within these architectures significantly improved diagnostic
+                precision by focusing on critical regions of the chest X-ray images. This approach reduced the dependency on
+                radiologists and democratized access to high-quality diagnostic tools, especially in resource-constrained
+                settings. The study underscores the transformative potential of AI in medical imaging, paving the way for
+                future advancements in AI-powered healthcare. Recommendations for future research include further
+                refinement of these models, exploring additional data augmentation techniques, and implementing more
+                advanced explainable AI techniques to foster trust and clinical adoption.
+            </p>
+            <h3>Authors</h3>
+                <div class="three-column-layout">
+                    <div class="column">
+                        <ul>
+                            <li>Kennedy Okokpujie</li>
+                            <li>Tamunowunari-Tasker Anointing</li>
+                            <li>Adaora Princess Ijeh</li>
+                        </ul>
+                    </div>
+                        <ul>
+                            <li>Imhade Princess Okokpujie</li>
+                            <li>Mary Oluwafeyisayo</li>
+                            <li>Ogundele Oluwadamilola Oguntuyo</li>
+                        </ul>
+                </div>
         </div>
-
         <!-- Call to Action -->
         <div class="content-section">
             <h2>Get Involved</h2>
             <p>Interested in learning more about this project or discussing similar fraud detection challenges? Feel free to reach out or check out the code repository.</p>
             
             <div class="btn-container">
-                <a href="../pdf/petroleum-fraud.pdf" download class="btn btn-primary">Download Project PDF</a>
-                <a href="https://github.com/yourusername/petroleum-fraud" target="_blank" class="btn btn-secondary">View on GitHub</a>
+                <a href="https://www.researchgate.net/publication/394334054_Development_of_classification_model_for_thoracic_diseases_with_chest
+                _X-ray_images_using_deep_convolutional_neural_network?utm_source=twitter&rgutm_meta1=eHNsLXRzTHZ4YVBoL3cxRFpiTzI3T3dGWmFrbTdrMHp
+                LODZTQUI1NnQyRDF1SlMxYmtlbW1kSkEvZ2x6cVFYb05xeG1JYnE5TFVRU2xmNHJDR0NKNjFhdUM3RT0%3D " download class="btn btn-primary">See Publication</a>
                 <a href="mailto:anointingtasker2002@gmail.com" class="btn btn-secondary">Contact Me</a>
             </div>
         </div>
