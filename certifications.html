@@ -171,6 +171,9 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .cert-card::before {
@@ -191,6 +194,34 @@
 
         .cert-card:hover::before {
             height: 100%;
+        }
+
+        .cert-card.clickable {
+            cursor: pointer;
+        }
+
+        .cert-card.clickable::after {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 20px;
+            height: 20px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cert-card.clickable:hover::after {
+            opacity: 1;
+        }
+
+        .cert-card.not-available {
+            opacity: 0.7;
         }
 
         .cert-header {
@@ -215,6 +246,10 @@
             width: 24px;
             height: 24px;
             color: var(--accent);
+        }
+
+        .cert-title-wrapper {
+            flex: 1;
         }
 
         .cert-title {
@@ -255,6 +290,21 @@
             padding: 0.25rem 0.75rem;
             border-radius: 12px;
             font-size: 0.8rem;
+        }
+
+        .link-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cert-card.clickable:hover .link-icon {
+            opacity: 1;
         }
 
         /* Footer */
@@ -307,11 +357,11 @@
         
         <div class="stats">
             <div class="stat-item">
-                <span class="stat-number">15</span>
+                <span class="stat-number">6</span>
                 <span class="stat-label">Total Certifications</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">3</span>
+                <span class="stat-number">4</span>
                 <span class="stat-label">Providers</span>
             </div>
             <div class="stat-item">
@@ -393,15 +443,22 @@
             }
 
             filtered.forEach(cert => {
-                const card = document.createElement('div');
-                card.className = 'cert-card';
+                const hasLink = cert.link && cert.link.trim() !== '';
+                const card = document.createElement('a');
+                card.className = hasLink ? 'cert-card clickable' : 'cert-card not-available';
+                
+                if (hasLink) {
+                    card.href = cert.link;
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                }
                 
                 card.innerHTML = `
                     <div class="cert-header">
                         <div class="cert-icon">
                             <i data-lucide="${getIcon(cert.issuer)}"></i>
                         </div>
-                        <div>
+                        <div class="cert-title-wrapper">
                             <div class="cert-title">${cert.title}</div>
                             <div class="cert-issuer">${cert.issuer}</div>
                         </div>
@@ -412,6 +469,7 @@
                     <div class="cert-tags">
                         ${cert.tags.map(tag => `<span class="cert-tag">${tag}</span>`).join('')}
                     </div>
+                    ${hasLink ? '<i data-lucide="external-link" class="link-icon"></i>' : ''}
                 `;
                 
                 grid.appendChild(card);

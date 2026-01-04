@@ -4,91 +4,32 @@
         "issuer": "IBM",
         "credential": "SETB575CQNM7",
         "category": "ibm",
-        "tags": ["AI Engineering", "Specialization"]
+        "tags": ["AI Engineering", "Specialization"],
+        "link": "https://www.coursera.org/account/accomplishments/specialization/SETB575CQNM7"
     },
     {
         "title": "AI Capstone Project with Deep Learning",
         "issuer": "IBM",
         "credential": "WV6JD30WQ3V1",
         "category": "ibm",
-        "tags": ["Deep Learning", "Capstone"]
-    },
-    {
-        "title": "Deep Learning with Keras and TensorFlow",
-        "issuer": "IBM",
-        "credential": "ZW9UHTXS4P4D",
-        "category": "ibm",
-        "tags": ["Keras", "TensorFlow"]
-    },
-    {
-        "title": "Deep Learning with PyTorch",
-        "issuer": "IBM",
-        "credential": "7JRG9ON6EAFL",
-        "category": "ibm",
-        "tags": ["PyTorch", "Deep Learning"]
-    },
-    {
-        "title": "Fundamentals of AI Agents Using RAG and LangChain",
-        "issuer": "IBM",
-        "credential": "AIBA20N3AHMM",
-        "category": "ibm",
-        "tags": ["RAG", "LangChain", "AI Agents"]
-    },
-    {
-        "title": "Generative AI Advanced Fine-Tuning for LLMs",
-        "issuer": "IBM",
-        "credential": "6SKGBE4CFSIU",
-        "category": "ibm",
-        "tags": ["Generative AI", "LLMs"]
-    },
-    {
-        "title": "Generative AI Engineering and Fine-Tuning Transformers",
-        "issuer": "IBM",
-        "credential": "QEQH9VKHIHY",
-        "category": "ibm",
-        "tags": ["Transformers", "Generative AI"]
-    },
-    {
-        "title": "Introduction to Neural Networks and PyTorch",
-        "issuer": "IBM",
-        "credential": "5PEDEKB2DC9E",
-        "category": "ibm",
-        "tags": ["Neural Networks", "PyTorch"]
+        "tags": ["Deep Learning", "Capstone"],
+        "link": "https://www.coursera.org/account/accomplishments/records/WV6JD30WQ3V1"
     },
     {
         "title": "Project: Generative AI Applications with RAG and LangChain",
         "issuer": "IBM",
         "credential": "GQHRZZD2IQL4",
         "category": "ibm",
-        "tags": ["RAG", "LangChain", "Project"]
-    },
-    {
-        "title": "Generative AI Language Modeling with Transformers",
-        "issuer": "IBM",
-        "credential": "E2ZHAZ38VUDK",
-        "category": "ibm",
-        "tags": ["Language Modeling", "Transformers"]
-    },
-    {
-        "title": "Generative AI Foundational Models for NLP & Language Understanding",
-        "issuer": "IBM",
-        "credential": "DAGX4CM96ZI3",
-        "category": "ibm",
-        "tags": ["NLP", "Foundational Models"]
-    },
-    {
-        "title": "Generative AI and LLMs: Architecture and Data Preparation",
-        "issuer": "IBM",
-        "credential": "LP64TOFFRYM6",
-        "category": "ibm",
-        "tags": ["Architecture", "Data Preparation"]
+        "tags": ["RAG", "LangChain", "Project"],
+        "link": "https://www.coursera.org/account/accomplishments/records/GQHRZZD2IQL4"
     },
     {
         "title": "Version Control with Git",
         "issuer": "Atlassian",
         "credential": "4T6CQVV9KVGP",
         "category": "atlassian",
-        "tags": ["Git", "Version Control"]
+        "tags": ["Git", "Version Control"],
+        "link": "https://www.coursera.org/account/accomplishments/records/4T6CQVV9KVGP"
     },
     {
         "title": "Diploma in Leadership Development",
@@ -102,6 +43,7 @@
         "issuer": "Duolingo",
         "credential": "d2m173hhkmk62eel",
         "category": "other",
-        "tags": ["English Proficiency", "Language"]
+        "tags": ["English Proficiency", "Language"],
+        "link": "https://certs.duolingo.com/d2m173hhkmk62eel"
     }
 ]

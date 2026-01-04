@@ -6,6 +6,7 @@
     <script src="config.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel = "icon" type="image/jpg" href="/assets/images/favicon.jpg">
     <title>Anointing Tamunowunari-Tasker</title>
     <style>
         * {
@@ -962,8 +963,7 @@
                         </div>
                         <p class="work-description">
                             • IBM Certified AI Engineer<br>
-                            • AWS Certified Cloud Practitioner<br>
-                            • Google Data Analytics Professional Certificate
+                            • Introduction to Software Engineering
                         </p>
                         <a href="/certifications.html" class="btn btn-primary">View Certifications</a>
                     </div>
@@ -986,40 +986,11 @@
     <section class="section" id="blog">
         <div class="section-header">
             <h2 class="section-title">recent posts</h2>
-            <a href="#" class="view-more">view more</a>
+            <a href="/blog.html" class="view-more">view more</a>
         </div>
         
-        <div class="blog-grid">
-            <a href="#" class="blog-post">
-                <h3 class="blog-title">Building Enterprise-Grade ML Systems: Lessons from Production</h3>
-                <p class="blog-excerpt">
-                    A deep dive into deploying machine learning models in production environments, covering everything 
-                    from data pipelines to model monitoring and optimization strategies.
-                </p>
-                <div class="blog-meta">
-                    <span>AI/ML</span>
-                    <span>•</span>
-                    <span>December 15, 2025</span>
-                    <span>•</span>
-                    <span>8 min read</span>
-                </div>
-            </a>
-
-            <a href="#" class="blog-post">
-                <h3 class="blog-title">From Safety Engineering to AI: My Career Transition Story</h3>
-                <p class="blog-excerpt">
-                    How I transitioned from offshore safety engineering to building AI systems, including the challenges 
-                    faced and lessons learned along the way.
-                </p>
-                <div class="blog-meta">
-                    <span>Career</span>
-                    <span>•</span>
-                    <span>November 28, 2025</span>
-                    <span>•</span>
-                    <span>6 min read</span>
-                </div>
-            </a>
-        </div>
+        <div class="blog-grid" id = "blogGrid"></div>
+        
     </section>
 
     <!-- Skills -->
@@ -1045,53 +1016,6 @@
         </div>
     </section>
 
-    <!-- GitHub Activity -->
-    <section class="section" id="github-activity">
-        <div class="section-header">
-            <h2 class="section-title">coding activity</h2>
-            <a href="https://github.com/cherryland120" class="view-more" target="_blank">view on github</a>
-        </div>
-        <div class="github-stats-container">
-            <div class="contribution-graph">
-                <div class="graph-header">
-                    <span style="font-size: 0.9rem; color: var(--text-secondary);">
-                        <span id="contributionYear">2025</span> contributions
-                    </span>
-                    <div class="graph-legend">
-                        <span>Less</span>
-                        <div class="legend-item">
-                            <div class="legend-square" style="background: rgba(59, 130, 246, 0.1);"></div>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-square" style="background: rgba(59, 130, 246, 0.3);"></div>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-square" style="background: rgba(59, 130, 246, 0.6);"></div>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-square" style="background: rgba(59, 130, 246, 1);"></div>
-                        </div>
-                        <span>More</span>
-                    </div>
-                </div>
-                <div class="contributions-wrapper" id="contributionGraph"></div>
-            </div>
-            <div class="github-summary">
-                <div class="stat-card">
-                    <div class="stat-value" id="totalContributions">0</div>
-                    <div class="stat-label">contributions this year</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="longestStreak">0</div>
-                    <div class="stat-label">day longest streak</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="currentStreak">0</div>
-                    <div class="stat-label">day current streak</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact -->
     <section class="section" id="contact">
@@ -1183,218 +1107,6 @@
             resetAutoSlide();
         });
 
-        // GitHub Contribution Graph
-        // GitHub Contribution Graph with Real API Data
-        async function generateContributionGraph() {
-            const graph = document.getElementById('contributionGraph');
-            const today = new Date();
-            const oneYearAgo = new Date(today);
-            oneYearAgo.setFullYear(today.getFullYear() - 1);
-            
-            // Set contribution year
-            document.getElementById('contributionYear').textContent = today.getFullYear();
-            
-            try {
-                // Fetch real contribution data from GitHub API
-                const contributions = await fetchGitHubContributions(GITHUB_CONFIG.username, GITHUB_CONFIG.token);
-                
-                // Create month labels
-                const monthLabels = document.createElement('div');
-                monthLabels.className = 'month-labels';
-                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                
-                // Create graph container
-                const graphContainer = document.createElement('div');
-                graphContainer.className = 'graph-container';
-                
-                // Calculate stats
-                let totalContributions = 0;
-                let currentStreakCount = 0;
-                let longestStreakCount = 0;
-                let tempStreak = 0;
-                
-                // Track which month we're in for labels
-                let currentMonth = -1;
-                
-                // Group contributions by week
-                const weeks = [];
-                let currentWeek = [];
-                
-                contributions.forEach((day, index) => {
-                    const date = new Date(day.date);
-                    const dayOfWeek = date.getDay();
-                    
-                    // Add month label at the start of new months
-                    if (date.getMonth() !== currentMonth && dayOfWeek === 0) {
-                        currentMonth = date.getMonth();
-                        const monthLabel = document.createElement('div');
-                        monthLabel.className = 'month-label';
-                        monthLabel.textContent = months[currentMonth];
-                        monthLabels.appendChild(monthLabel);
-                    }
-                    
-                    // Create day square
-                    const daySquare = document.createElement('div');
-                    daySquare.className = 'day-square';
-                    
-                    // Determine contribution level (0-4) based on count
-                    let level = 0;
-                    if (day.count > 0) level = 1;
-                    if (day.count >= 5) level = 2;
-                    if (day.count >= 10) level = 3;
-                    if (day.count >= 15) level = 4;
-                    
-                    daySquare.setAttribute('data-level', level);
-                    daySquare.setAttribute('data-date', day.date);
-                    daySquare.setAttribute('data-contributions', day.count);
-                    
-                    // Track stats
-                    totalContributions += day.count;
-                    if (day.count > 0) {
-                        tempStreak++;
-                    } else {
-                        longestStreakCount = Math.max(longestStreakCount, tempStreak);
-                        tempStreak = 0;
-                    }
-                    
-                    // Add tooltip on hover
-                    daySquare.addEventListener('mouseenter', (e) => {
-                        const tooltip = document.createElement('div');
-                        tooltip.className = 'day-tooltip';
-                        const contributionText = day.count === 0 ? 'No contributions' : 
-                                                day.count === 1 ? '1 contribution' : 
-                                                `${day.count} contributions`;
-                        tooltip.textContent = `${contributionText} on ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
-                        daySquare.appendChild(tooltip);
-                    });
-                    
-                    daySquare.addEventListener('mouseleave', (e) => {
-                        const tooltip = daySquare.querySelector('.day-tooltip');
-                        if (tooltip) tooltip.remove();
-                    });
-                    
-                    // Add to current week
-                    currentWeek.push(daySquare);
-                    
-                    // Start new week on Sunday (day 0) or when we've filled 7 days
-                    if (dayOfWeek === 6 || index === contributions.length - 1) {
-                        weeks.push([...currentWeek]);
-                        currentWeek = [];
-                    }
-                });
-                
-                // Calculate current streak (from today backwards)
-                for (let i = contributions.length - 1; i >= 0; i--) {
-                    if (contributions[i].count > 0) {
-                        currentStreakCount++;
-                    } else {
-                        break;
-                    }
-                }
-                
-                longestStreakCount = Math.max(longestStreakCount, tempStreak);
-                
-                // Build the graph by weeks
-                weeks.forEach(week => {
-                    const weekColumn = document.createElement('div');
-                    weekColumn.className = 'week-column';
-                    week.forEach(day => weekColumn.appendChild(day));
-                    graphContainer.appendChild(weekColumn);
-                });
-                
-                // Animate stats
-                const animateValue = (element, start, end, duration) => {
-                    const range = end - start;
-                    const increment = range / (duration / 16);
-                    let current = start;
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-                            current = end;
-                            clearInterval(timer);
-                        }
-                        element.textContent = Math.floor(current);
-                    }, 16);
-                };
-                
-                setTimeout(() => {
-                    animateValue(document.getElementById('totalContributions'), 0, totalContributions, 1000);
-                    animateValue(document.getElementById('longestStreak'), 0, longestStreakCount, 1000);
-                    animateValue(document.getElementById('currentStreak'), 0, currentStreakCount, 1000);
-                }, 300);
-                
-                graph.appendChild(monthLabels);
-                graph.appendChild(graphContainer);
-                
-            } catch (error) {
-                console.error('Error fetching GitHub contributions:', error);
-                graph.innerHTML = '<p style="color: var(--text-secondary);">Unable to load contribution data. Please check your GitHub token.</p>';
-            }
-        }
-
-        // Fetch GitHub contributions using GraphQL API
-        async function fetchGitHubContributions(username, token) {
-            const today = new Date();
-            const oneYearAgo = new Date(today);
-            oneYearAgo.setFullYear(today.getFullYear() - 1);
-            
-            const query = `
-                query($username: String!, $from: DateTime!, $to: DateTime!) {
-                    user(login: $username) {
-                        contributionsCollection(from: $from, to: $to) {
-                            contributionCalendar {
-                                weeks {
-                                    contributionDays {
-                                        date
-                                        contributionCount
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            `;
-            
-            const variables = {
-                username: username,
-                from: oneYearAgo.toISOString(),
-                to: today.toISOString()
-            };
-            
-            const response = await fetch('https://api.github.com/graphql', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ query, variables })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`GitHub API error: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            
-            if (data.errors) {
-                throw new Error(`GraphQL error: ${data.errors[0].message}`);
-            }
-            
-            // Flatten the nested structure
-            const contributions = [];
-            data.data.user.contributionsCollection.contributionCalendar.weeks.forEach(week => {
-                week.contributionDays.forEach(day => {
-                    contributions.push({
-                        date: day.date,
-                        count: day.contributionCount
-                    });
-                });
-            });
-            
-            return contributions;
-        }
-
         // Load Projects (Max 2)
         async function loadProjects() {
             try {
@@ -1435,7 +1147,72 @@
             }
         }
 
+        // Load Blog Posts from posts.json
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('blog/posts.json');
+                const posts = await response.json();
+
+                const blogGrid = document.querySelector('.blog-grid');
+                blogGrid.innerHTML = '';
+
+                // Sort posts by date (newest first)
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // Only show the 2 most recent posts on the homepage
+                const recentPosts = posts.slice(0, 2);
+
+                recentPosts.forEach(post => {
+                    const postDate = new Date(post.date);
+                    const formattedDate = postDate.toLocaleDateString('en-US', { 
+                        month: 'long', 
+                        day: 'numeric', 
+                        year: 'numeric' 
+                    });
+
+                    const blogPost = document.createElement('a');
+                    blogPost.href = post.url;
+                    blogPost.className = 'blog-post';
+
+                    blogPost.innerHTML = `
+                        <h3 class="blog-title">${post.title}</h3>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <div class="blog-meta">
+                            <span>${post.category}</span>
+                            <span>•</span>
+                            <span>${formattedDate}</span>
+                            <span>•</span>
+                            <span>${post.readTime}</span>
+                        </div>
+                    `;
+
+                    blogGrid.appendChild(blogPost);
+                });
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                // Fallback to hardcoded posts if JSON fails
+                const blogGrid = document.querySelector('.blog-grid');
+                blogGrid.innerHTML = `
+                    <a href="#" class="blog-post">
+                        <h3 class="blog-title">Building Enterprise-Grade ML Systems: Lessons from Production</h3>
+                        <p class="blog-excerpt">
+                            A deep dive into deploying machine learning models in production environments, covering everything 
+                            from data pipelines to model monitoring and optimization strategies.
+                        </p>
+                        <div class="blog-meta">
+                            <span>AI/ML</span>
+                            <span>•</span>
+                            <span>December 15, 2025</span>
+                            <span>•</span>
+                            <span>8 min read</span>
+                        </div>
+                    </a>
+                `;
+            }
+        }
+
         // Initialize everything
+        loadBlogPosts();
         loadProjects();
         generateContributionGraph();
         lucide.createIcons();
