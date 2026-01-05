@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="config.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel = "icon" type="image/jpg" href="/assets/images/favicon.jpg">
@@ -721,6 +720,91 @@
             border-top-color: var(--accent);
         }
 
+        /* Review Form Styles - Add to your existing <style> section */
+        .review-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .review-form {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .review-form button[type="submit"] {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .review-form button[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .review-message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .review-message.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .review-message.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .review-message.info {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent);
+        }
+
         /* Footer */
         footer {
             max-width: 1200px;
@@ -1016,6 +1100,53 @@
         </div>
     </section>
 
+    <!-- GitHub Activity -->
+    <section class="section" id="github-activity">
+        <div class="section-header">
+            <h2 class="section-title">coding activity</h2>
+            <a href="https://github.com/cherryland120" class="view-more" target="_blank">view on github</a>
+        </div>
+        <div class="github-stats-container">
+            <div class="contribution-graph">
+                <div class="graph-header">
+                    <span style="font-size: 0.9rem; color: var(--text-secondary);">
+                        <span id="contributionYear">2025</span> contributions
+                    </span>
+                    <div class="graph-legend">
+                        <span>Less</span>
+                        <div class="legend-item">
+                            <div class="legend-square" style="background: rgba(59, 130, 246, 0.1);"></div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-square" style="background: rgba(59, 130, 246, 0.3);"></div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-square" style="background: rgba(59, 130, 246, 0.6);"></div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-square" style="background: rgba(59, 130, 246, 1);"></div>
+                        </div>
+                        <span>More</span>
+                    </div>
+                </div>
+                <div class="contributions-wrapper" id="contributionGraph"></div>
+            </div>
+            <div class="github-summary">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalContributions">0</div>
+                    <div class="stat-label">contributions this year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="longestStreak">0</div>
+                    <div class="stat-label">day longest streak</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="currentStreak">0</div>
+                    <div class="stat-label">day current streak</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact -->
     <section class="section" id="contact">
@@ -1029,6 +1160,49 @@
         <div class="btn-group">
             <a href="mailto:anointing.tasker@icloud.com" class="btn btn-primary">Send Email</a>
             <a href="https://www.linkedin.com/in/anointing-tamunowunari-tasker" class="btn btn-secondary">LinkedIn</a>
+        </div>
+    </section>
+
+        <!-- Website Review Section -->
+    <section class="section" id="review">
+        <div class="section-header">
+            <h2 class="section-title">share your thoughts</h2>
+        </div>
+        <p class="hero-description">
+            I'd love to hear your feedback about this website! Your thoughts help me improve.
+        </p>
+        
+        <div class="review-form-container">
+            <form id="reviewForm" class="review-form">
+                <div class="form-group">
+                    <label for="reviewName">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="reviewName" 
+                        name="name" 
+                        placeholder="Enter your name"
+                        required
+                    />
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea 
+                        id="reviewText" 
+                        name="review" 
+                        rows="4" 
+                        placeholder="Share your brief thoughts about this website..."
+                        required
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <i data-lucide="send"></i>
+                    Submit Review
+                </button>
+            </form>
+            
+            <div id="reviewMessage" class="review-message" style="display: none;"></div>
         </div>
     </section>
 
@@ -1209,6 +1383,289 @@
                     </a>
                 `;
             }
+        }
+        // Review Form Submission Handler
+
+        document.getElementById('reviewForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const messageDiv = document.getElementById('reviewMessage');
+            const form = e.target;
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('reviewName').value.trim(),
+                review: document.getElementById('reviewText').value.trim()
+            };
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i data-lucide="loader"></i> Submitting...';
+            messageDiv.style.display = 'none';
+            
+            try {
+                // Replace with your actual backend URL when deployed
+                const API_URL = 'http://127.0.0.1:5100/api/review';  // Development
+                // const API_URL = 'https://your-backend-url.com/api/review';  // Production
+                
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Show success message
+                    messageDiv.className = 'review-message success';
+                    messageDiv.innerHTML = `
+                        <strong>Thank you for your feedback!</strong><br>
+                        Your review was classified as: <strong>${data.sentiment}</strong>
+                    `;
+                    messageDiv.style.display = 'block';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error(data.error || 'Failed to submit review');
+                }
+                
+            } catch (error) {
+                console.error('Error submitting review:', error);
+                messageDiv.className = 'review-message error';
+                messageDiv.innerHTML = `
+                    <strong>Oops! Something went wrong.</strong><br>
+                    ${error.message}
+                `;
+                messageDiv.style.display = 'block';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i data-lucide="send"></i> Submit Review';
+                lucide.createIcons();  // Reinitialize icons
+            }
+        });
+
+        // GitHub Contribution Graph with Real API Data
+        async function generateContributionGraph() {
+            const graph = document.getElementById('contributionGraph');
+            const today = new Date();
+            const oneYearAgo = new Date(today);
+            oneYearAgo.setFullYear(today.getFullYear() - 1);
+            
+            // Set contribution year
+            document.getElementById('contributionYear').textContent = today.getFullYear();
+            
+            try {
+                // Fetch contributions via proxy - NO TOKEN NEEDED
+                const contributions = await fetchGitHubContributions('cherryland120');
+                
+                // ... rest of your existing code remains exactly the same ...
+                
+                // Create month labels
+                const monthLabels = document.createElement('div');
+                monthLabels.className = 'month-labels';
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                
+                // Create graph container
+                const graphContainer = document.createElement('div');
+                graphContainer.className = 'graph-container';
+                
+                // Calculate stats
+                let totalContributions = 0;
+                let currentStreakCount = 0;
+                let longestStreakCount = 0;
+                let tempStreak = 0;
+                
+                // Track which month we're in for labels
+                let currentMonth = -1;
+                
+                // Group contributions by week
+                const weeks = [];
+                let currentWeek = [];
+                
+                contributions.forEach((day, index) => {
+                    const date = new Date(day.date);
+                    const dayOfWeek = date.getDay();
+                    
+                    // Add month label at the start of new months
+                    if (date.getMonth() !== currentMonth && dayOfWeek === 0) {
+                        currentMonth = date.getMonth();
+                        const monthLabel = document.createElement('div');
+                        monthLabel.className = 'month-label';
+                        monthLabel.textContent = months[currentMonth];
+                        monthLabels.appendChild(monthLabel);
+                    }
+                    
+                    // Create day square
+                    const daySquare = document.createElement('div');
+                    daySquare.className = 'day-square';
+                    
+                    // Determine contribution level (0-4) based on count
+                    let level = 0;
+                    if (day.count > 0) level = 1;
+                    if (day.count >= 5) level = 2;
+                    if (day.count >= 10) level = 3;
+                    if (day.count >= 15) level = 4;
+                    
+                    daySquare.setAttribute('data-level', level);
+                    daySquare.setAttribute('data-date', day.date);
+                    daySquare.setAttribute('data-contributions', day.count);
+                    
+                    // Track stats
+                    totalContributions += day.count;
+                    if (day.count > 0) {
+                        tempStreak++;
+                    } else {
+                        longestStreakCount = Math.max(longestStreakCount, tempStreak);
+                        tempStreak = 0;
+                    }
+                    
+                    // Add tooltip on hover
+                    daySquare.addEventListener('mouseenter', (e) => {
+                        const tooltip = document.createElement('div');
+                        tooltip.className = 'day-tooltip';
+                        const contributionText = day.count === 0 ? 'No contributions' : 
+                                                day.count === 1 ? '1 contribution' : 
+                                                `${day.count} contributions`;
+                        tooltip.textContent = `${contributionText} on ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+                        daySquare.appendChild(tooltip);
+                    });
+                    
+                    daySquare.addEventListener('mouseleave', (e) => {
+                        const tooltip = daySquare.querySelector('.day-tooltip');
+                        if (tooltip) tooltip.remove();
+                    });
+                    
+                    // Add to current week
+                    currentWeek.push(daySquare);
+                    
+                    // Start new week on Sunday (day 0) or when we've filled 7 days
+                    if (dayOfWeek === 6 || index === contributions.length - 1) {
+                        weeks.push([...currentWeek]);
+                        currentWeek = [];
+                    }
+                });
+                
+                // Calculate current streak (from today backwards)
+                for (let i = contributions.length - 1; i >= 0; i--) {
+                    if (contributions[i].count > 0) {
+                        currentStreakCount++;
+                    } else {
+                        break;
+                    }
+                }
+                
+                longestStreakCount = Math.max(longestStreakCount, tempStreak);
+                
+                // Build the graph by weeks
+                weeks.forEach(week => {
+                    const weekColumn = document.createElement('div');
+                    weekColumn.className = 'week-column';
+                    week.forEach(day => weekColumn.appendChild(day));
+                    graphContainer.appendChild(weekColumn);
+                });
+                
+                // Animate stats
+                const animateValue = (element, start, end, duration) => {
+                    const range = end - start;
+                    const increment = range / (duration / 16);
+                    let current = start;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                            current = end;
+                            clearInterval(timer);
+                        }
+                        element.textContent = Math.floor(current);
+                    }, 16);
+                };
+                
+                setTimeout(() => {
+                    animateValue(document.getElementById('totalContributions'), 0, totalContributions, 1000);
+                    animateValue(document.getElementById('longestStreak'), 0, longestStreakCount, 1000);
+                    animateValue(document.getElementById('currentStreak'), 0, currentStreakCount, 1000);
+                }, 300);
+                
+                graph.appendChild(monthLabels);
+                graph.appendChild(graphContainer);
+                
+            } catch (error) {
+                console.error('Error fetching GitHub contributions:', error);
+                graph.innerHTML = '<p style="color: var(--text-secondary);">Unable to load contribution data. Please check your configuration.</p>';
+            }
+        }
+
+        // Fetch GitHub contributions via your secure PHP proxy
+        async function fetchGitHubContributions(username) {
+            const today = new Date();
+            const oneYearAgo = new Date(today);
+            oneYearAgo.setFullYear(today.getFullYear() - 1);
+            
+            const query = `
+                query($username: String!, $from: DateTime!, $to: DateTime!) {
+                    user(login: $username) {
+                        contributionsCollection(from: $from, to: $to) {
+                            contributionCalendar {
+                                weeks {
+                                    contributionDays {
+                                        date
+                                        contributionCount
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            `;
+            
+            const variables = {
+                username: username,
+                from: oneYearAgo.toISOString(),
+                to: today.toISOString()
+            };
+            
+            // Call your PHP proxy instead of GitHub directly
+            const response = await fetch('api/github-proxy.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query, variables })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Proxy error: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            if (data.errors) {
+                throw new Error(`GraphQL error: ${data.errors[0].message}`);
+            }
+            
+            // Flatten the nested structure
+            const contributions = [];
+            data.data.user.contributionsCollection.contributionCalendar.weeks.forEach(week => {
+                week.contributionDays.forEach(day => {
+                    contributions.push({
+                        date: day.date,
+                        count: day.contributionCount
+                    });
+                });
+            });
+            
+            return contributions;
         }
 
         // Initialize everything

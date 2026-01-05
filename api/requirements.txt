@@ -1,0 +1,7 @@
+Flask==3.0.0
+flask-cors==4.0.0
+torch==2.1.0
+torchtext==0.16.0
+spacy==3.7.2
+requests==2.31.0
+numpy<2
