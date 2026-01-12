@@ -42,3 +42,5 @@ Thumbs.db
 # CSV files with sensitive data
 negative_reviews.csv
 api/github-proxy.php
+test.js
+testing.html
