@@ -11,6 +11,10 @@ __pycache__/
 env/
 ENV/
 
+
+/api/
+
+
 # Environment Variables (CRITICAL - Never commit these!)
 .env
 .env.local

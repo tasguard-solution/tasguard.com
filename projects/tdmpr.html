@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -311,7 +312,8 @@
             background: var(--bg-primary);
         }
 
-        th, td {
+        th,
+        td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid var(--border);
@@ -466,6 +468,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -494,7 +497,8 @@
             <img src="../assets/images/project_images/projects/thoracic_grid.png"
                  alt="Thoracic Disease Classification System">
         </div>
-        <h1>Development of Classification Model for Thoracic Diseases with Chest X-ray Images Using Deep Convolutional Neural Network</h1>
+        <h1>Development of Classification Model for Thoracic Diseases with Chest X-ray Images Using Deep Convolutional
+            Neural Network</h1>
         <div class="project-tags">
             <span class="tag">Python</span>
             <span class="tag">TensorFlow</span>
@@ -524,12 +528,25 @@
         <!-- Overview Section -->
         <div class="content-section">
             <h2>Project Overview</h2>
-            <p>A <strong>thoracic disease</strong> is a medical condition in the chest wall region. Accurate thoracic disease diagnosis in patients is critical for effective treatment. Atelectasis, mass, pneumonia, and pneumothorax are thoracic diseases that can lead to life-threatening conditions if not detected and treated early enough. When diagnosing these diseases, human expertise can also be susceptible to errors due to fatigue or emotional factors. This research proposes developing a real-time deep learning-based classification model for thoracic diseases.</p>
+            <p>A <strong>thoracic disease</strong> is a medical condition in the chest wall region. Accurate thoracic
+                disease diagnosis in patients is critical for effective treatment. Atelectasis, mass, pneumonia, and
+                pneumothorax are thoracic diseases that can lead to life-threatening conditions if not detected and
+                treated early enough. When diagnosing these diseases, human expertise can also be susceptible to errors
+                due to fatigue or emotional factors. This research proposes developing a real-time deep learning-based
+                classification model for thoracic diseases.</p>
 
             <h3>What are Thoracic Diseases?</h3>
-            <p>Thoracic disorders encompass a wide range of potentially life-threatening conditions affecting the heart, lungs, esophagus, mediastinum, chest wall, and great vessels. According to the World Health Organization (WHO), pneumonia is particularly critical among these. Pneumonia, a viral or bacterial infection, is a leading cause of death in children globally, especially in low and middle-income countries. These statistics highlight the urgent need for accurate and accessible diagnostic tools.</p>
-            
-            <p>CXRs are the preferred diagnostic tool for thoracic diseases such as pneumonia and tuberculosis and signs of heart failure like cardiomegaly (enlarged heart), pulmonary edema (fluid in the lungs) and lung cancer indications such as mass and nodules. This is because CXR's are readily accessible in most healthcare facilities, even in remote or resource-constrained settings. Compared to more advanced imaging techniques like CT scans or MRIs, CXRs offer a cost-effective and low-radiation alternative.</p>
+            <p>Thoracic disorders encompass a wide range of potentially life-threatening conditions affecting the heart,
+                lungs, esophagus, mediastinum, chest wall, and great vessels. According to the World Health Organization
+                (WHO), pneumonia is particularly critical among these. Pneumonia, a viral or bacterial infection, is a
+                leading cause of death in children globally, especially in low and middle-income countries. These
+                statistics highlight the urgent need for accurate and accessible diagnostic tools.</p>
+
+            <p>CXRs are the preferred diagnostic tool for thoracic diseases such as pneumonia and tuberculosis and signs
+                of heart failure like cardiomegaly (enlarged heart), pulmonary edema (fluid in the lungs) and lung
+                cancer indications such as mass and nodules. This is because CXR's are readily accessible in most
+                healthcare facilities, even in remote or resource-constrained settings. Compared to more advanced
+                imaging techniques like CT scans or MRIs, CXRs offer a cost-effective and low-radiation alternative.</p>
 
             <div class="content-image">
                 <img src="../assets/images/project_images/projects/packed.png"
@@ -539,7 +556,10 @@
             <h3>What We Did</h3>
             <div class="classification-layout">
                 <div>
-                    <p>We propose developing a real-time deep learning-based classification model for thoracic diseases. Three deep convolutional neural network (CNN) models: <strong>MobileNetV3Large</strong>, <strong>ResNet50</strong>, and <strong>EfficientNetB7</strong> were evaluated for classification of these diseases by 5-way, 4-way, and 3-way approaches.</p>
+                    <p>We propose developing a real-time deep learning-based classification model for thoracic diseases.
+                        Three deep convolutional neural network (CNN) models: <strong>MobileNetV3Large</strong>,
+                        <strong>ResNet50</strong>, and <strong>EfficientNetB7</strong> were evaluated for classification
+                        of these diseases by 5-way, 4-way, and 3-way approaches.</p>
 
                     <div class="three-column-layout">
                         <div class="column">
@@ -579,19 +599,34 @@
             </div>
 
             <h3>Model Architectures</h3>
-            <p><strong>MobileNetV3Large</strong> - The design of MobileNetV3 incorporates advancements from both MobileNetV2 and a new architecture search technique called NetAdapt, ensuring an optimal balance between computational efficiency and accuracy. Its streamlined architecture is particularly beneficial when handling large medical image datasets, where computational resources and inference speeds are critical.</p>
+            <p><strong>MobileNetV3Large</strong> - The design of MobileNetV3 incorporates advancements from both
+                MobileNetV2 and a new architecture search technique called NetAdapt, ensuring an optimal balance between
+                computational efficiency and accuracy. Its streamlined architecture is particularly beneficial when
+                handling large medical image datasets, where computational resources and inference speeds are critical.
+            </p>
 
-            <p><strong>ResNet50</strong> - ResNet50, short for residual network with 50 layers, is one of the most renowned deep learning models due to its exceptional performance in image classification tasks. In the network, each residual block typically consists of three layers: a 1×1 convolution, a 3×3 convolution, and another 1×1 convolution. The output of these layers is then added to the input of the block, forming a shortcut connection that allows gradients to flow directly through the network.</p>
+            <p><strong>ResNet50</strong> - ResNet50, short for residual network with 50 layers, is one of the most
+                renowned deep learning models due to its exceptional performance in image classification tasks. In the
+                network, each residual block typically consists of three layers: a 1×1 convolution, a 3×3 convolution,
+                and another 1×1 convolution. The output of these layers is then added to the input of the block, forming
+                a shortcut connection that allows gradients to flow directly through the network.</p>
 
-            <p><strong>EfficientNetB7</strong> - EfficientNet's compound scaling algorithm strikes a compromise between network depth, breadth, and resolution. This approach entails simultaneously growing its depth, breadth, and resolution to construct a sequence of models from EfficientNetB0 to EfficientNetB7, with B7 being the largest and most powerful.</p>
+            <p><strong>EfficientNetB7</strong> - EfficientNet's compound scaling algorithm strikes a compromise between
+                network depth, breadth, and resolution. This approach entails simultaneously growing its depth, breadth,
+                and resolution to construct a sequence of models from EfficientNetB0 to EfficientNetB7, with B7 being
+                the largest and most powerful.</p>
         </div>
 
         <!-- Technical Implementation -->
         <div class="content-section">
             <h2>Technical Implementation</h2>
-            
+
             <h3>Data Sources</h3>
-            <p>The selected images were mutually exclusive from recognized and benchmarked dataset. The <a href="https://www.kaggle.com/datasets/nih-chest-xrays/data" target="_blank">NIH Chest X-ray 14 dataset</a> contains over 100,000 frontal-view X-ray images of 32,717 unique patients. The images are labelled with 14 different thoracic disease conditions, making it a significant resource for training and evaluating machine learning models in medical imaging and disease detection.</p>
+            <p>The selected images were mutually exclusive from recognized and benchmarked dataset. The <a
+                    href="https://www.kaggle.com/datasets/nih-chest-xrays/data" target="_blank">NIH Chest X-ray 14
+                    dataset</a> contains over 100,000 frontal-view X-ray images of 32,717 unique patients. The images
+                are labelled with 14 different thoracic disease conditions, making it a significant resource for
+                training and evaluating machine learning models in medical imaging and disease detection.</p>
 
             <div class="full-width-image">
                 <img src="../assets/images/project_images/projects/Data_Processing_Pipeline.jpg"
@@ -599,7 +634,9 @@
             </div>
 
             <h3>Dataset Distribution</h3>
-            <p>The table below shows the description of the dataset with atelectasis, mass, pneumonia, pneumothorax and normal with equal total number of classes, training, validation, and testing data of 1500, 1050, and 300 respectively.</p>
+            <p>The table below shows the description of the dataset with atelectasis, mass, pneumonia, pneumothorax and
+                normal with equal total number of classes, training, validation, and testing data of 1500, 1050, and 300
+                respectively.</p>
 
             <div class="table-wrapper">
                 <table>
@@ -653,13 +690,24 @@
             </div>
 
             <h3>Model Architecture Customization</h3>
-            <p>The layers introduced to the three models architecture were chosen to customize the model for the specific objective of thoracic illness categorization:</p>
+            <p>The layers introduced to the three models architecture were chosen to customize the model for the
+                specific objective of thoracic illness categorization:</p>
             <ul>
-                <li><strong>The Flatten() layer</strong> converts the multi-dimensional output from the base model into a one-dimensional vector. This transition from convolutional layers to fully connected layers is crucial for preparing the data for classification by the dense layers that follow.</li>
-                <li><strong>First Dense(256, activation=swish)</strong> layer introduces 256 fully connected neurons with the Swish activation function which is known for its smooth and non-monotonic nature, allowing the model to learn complex, non-linear data representations.</li>
-                <li><strong>Dropout(0.5)</strong> is a regularization approach for avoiding overfitting. Dropout improves model generalizability to new data by randomly setting 50% of neurons to zero during each training cycle.</li>
-                <li><strong>Dense Layer (128 units, Swish activation)</strong>: The second Dense(128, activation=swish) layer adds another set of fully connected neurons, further increasing the model's capacity to learn complex features from the data.</li>
-                <li><strong>Output layer</strong>: The final Dense(K, activation="softmax", kernel_regularizer=l2(0.001)) layer produces probability distributions over the dataset's K classes of thoracic diseases.</li>
+                <li><strong>The Flatten() layer</strong> converts the multi-dimensional output from the base model into
+                    a one-dimensional vector. This transition from convolutional layers to fully connected layers is
+                    crucial for preparing the data for classification by the dense layers that follow.</li>
+                <li><strong>First Dense(256, activation=swish)</strong> layer introduces 256 fully connected neurons
+                    with the Swish activation function which is known for its smooth and non-monotonic nature, allowing
+                    the model to learn complex, non-linear data representations.</li>
+                <li><strong>Dropout(0.5)</strong> is a regularization approach for avoiding overfitting. Dropout
+                    improves model generalizability to new data by randomly setting 50% of neurons to zero during each
+                    training cycle.</li>
+                <li><strong>Dense Layer (128 units, Swish activation)</strong>: The second Dense(128, activation=swish)
+                    layer adds another set of fully connected neurons, further increasing the model's capacity to learn
+                    complex features from the data.</li>
+                <li><strong>Output layer</strong>: The final Dense(K, activation="softmax",
+                    kernel_regularizer=l2(0.001)) layer produces probability distributions over the dataset's K classes
+                    of thoracic diseases.</li>
             </ul>
 
             <h3>Technologies Used</h3>
@@ -683,7 +731,7 @@
         <!-- Results Section -->
         <div class="content-section">
             <h2>Results & Impact</h2>
-            
+
             <h3>Performance Metrics</h3>
             <p>The table below summarizes the performance across all key metrics, classes and models:</p>
 
@@ -959,21 +1007,43 @@
             </div>
 
             <h3>Discussion</h3>
-            <p>Several key insights emerge from the comparison in evaluating the three deep learning models across the 5-way, 4-way, and 3-way classifications. MobileNetV3Large, ResNet50, and EfficientNetB7 demonstrate varying performance levels across different metrics and diseases, providing a comprehensive view of their strengths and weaknesses.</p>
-            
-            <p>For the 5-way classification, which includes diseases such as atelectasis, mass, pneumonia, and pneumothorax, MobileNetV3Large achieves an overall accuracy of 75.72%, slightly outperforming ResNet50's 75.20% but trailing behind EfficientNetB7's 73.03%. Regarding precision, MobileNetV3Large and ResNet50 display close performance in Atelectasis with values of 55.71% and 57.91%, respectively, while EfficientNetB7 excels at 61.39%.</p>
-            
-            <p>The models show improved overall accuracy in the 4-way classification, which omits one disease from the previous set. MobileNetV3Large achieves an accuracy of 87.25%, closely matched by ResNet50 at 87.08%, but both are surpassed by EfficientNetB7 at 88.08%. The precision metric for pneumonia is particularly noteworthy, where MobileNetV3Large scores 97.32%, closely followed by EfficientNetB7 at 96.79% and ResNet50 at 92.15%.</p>
-            
-            <p>In the 3-way classification, which further simplifies the categorisation, all models show significantly higher accuracy and precision. MobileNetV3Large achieves an accuracy of 97.44%, ResNet50 slightly higher at 97.88%, and EfficientNetB7 at 96.55%. Precision for Atelectasis is perfect for MobileNetV3Large and ResNet50, achieving 100%, while EfficientNetB7 is close at 99.30%.</p>
+            <p>Several key insights emerge from the comparison in evaluating the three deep learning models across the
+                5-way, 4-way, and 3-way classifications. MobileNetV3Large, ResNet50, and EfficientNetB7 demonstrate
+                varying performance levels across different metrics and diseases, providing a comprehensive view of
+                their strengths and weaknesses.</p>
+
+            <p>For the 5-way classification, which includes diseases such as atelectasis, mass, pneumonia, and
+                pneumothorax, MobileNetV3Large achieves an overall accuracy of 75.72%, slightly outperforming ResNet50's
+                75.20% but trailing behind EfficientNetB7's 73.03%. Regarding precision, MobileNetV3Large and ResNet50
+                display close performance in Atelectasis with values of 55.71% and 57.91%, respectively, while
+                EfficientNetB7 excels at 61.39%.</p>
+
+            <p>The models show improved overall accuracy in the 4-way classification, which omits one disease from the
+                previous set. MobileNetV3Large achieves an accuracy of 87.25%, closely matched by ResNet50 at 87.08%,
+                but both are surpassed by EfficientNetB7 at 88.08%. The precision metric for pneumonia is particularly
+                noteworthy, where MobileNetV3Large scores 97.32%, closely followed by EfficientNetB7 at 96.79% and
+                ResNet50 at 92.15%.</p>
+
+            <p>In the 3-way classification, which further simplifies the categorisation, all models show significantly
+                higher accuracy and precision. MobileNetV3Large achieves an accuracy of 97.44%, ResNet50 slightly higher
+                at 97.88%, and EfficientNetB7 at 96.55%. Precision for Atelectasis is perfect for MobileNetV3Large and
+                ResNet50, achieving 100%, while EfficientNetB7 is close at 99.30%.</p>
         </div>
 
         <!-- Conclusion Section -->
         <div class="content-section">
             <h2>Conclusion</h2>
-            <p>Key findings highlighted the superior performance of MobileNetV3Large in terms of computational efficiency and accuracy, particularly when enhanced with transfer learning and attention mechanisms. ResNet50 showed robust performance across different disease classifications, often surpassing the other models in precision for complex classifications. EfficientNetB7 demonstrated competitive accuracy, highlighting its robustness in various classification scenarios.</p>
-            
-            <p>The integration of attention mechanisms within these architectures significantly improved diagnostic precision by focusing on critical regions of the chest X-ray images. This approach reduced the dependency on radiologists and democratized access to high-quality diagnostic tools, especially in resource-constrained settings. The study underscores the transformative potential of AI in medical imaging, paving the way for future advancements in AI-powered healthcare.</p>
+            <p>Key findings highlighted the superior performance of MobileNetV3Large in terms of computational
+                efficiency and accuracy, particularly when enhanced with transfer learning and attention mechanisms.
+                ResNet50 showed robust performance across different disease classifications, often surpassing the other
+                models in precision for complex classifications. EfficientNetB7 demonstrated competitive accuracy,
+                highlighting its robustness in various classification scenarios.</p>
+
+            <p>The integration of attention mechanisms within these architectures significantly improved diagnostic
+                precision by focusing on critical regions of the chest X-ray images. This approach reduced the
+                dependency on radiologists and democratized access to high-quality diagnostic tools, especially in
+                resource-constrained settings. The study underscores the transformative potential of AI in medical
+                imaging, paving the way for future advancements in AI-powered healthcare.</p>
 
             <h3>Research Team</h3>
             <div class="three-column-layout">
@@ -998,8 +1068,9 @@
         <!-- Call to Action -->
         <div class="content-section">
             <h2>Get Involved</h2>
-            <p>Interested in learning more about this project or discussing similar medical AI challenges? Feel free to reach out or check out the publication.</p>
-            
+            <p>Interested in learning more about this project or discussing similar medical AI challenges? Feel free to
+                reach out or check out the publication.</p>
+
             <div class="btn-container">
                 <a href="https://www.researchgate.net/publication/394334054" target="_blank" class="btn btn-primary">
                     <i data-lucide="file-text"></i>
@@ -1028,4 +1099,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
