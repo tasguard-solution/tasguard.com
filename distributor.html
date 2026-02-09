@@ -74,6 +74,41 @@
         .stat-card.primary .value { color: #667eea; }
         .stat-card.success .value { color: #48bb78; }
 
+        .distributor-breakdown {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .distributor-breakdown h3 {
+            color: #2d3748;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .distributor-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .distributor-item .name {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .distributor-item .count {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
         .upload-section {
             background: white;
             padding: 40px;
@@ -104,6 +139,19 @@
             color: #4a5568;
             font-weight: 600;
             font-size: 14px;
+        }
+
+        .info-box {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            padding: 15px;
+            border-radius: 8px;
+            color: #2c5282;
+            font-size: 14px;
+        }
+
+        .info-box strong {
+            color: #2b6cb0;
         }
 
         .file-input-wrapper {
@@ -312,29 +360,34 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📦 Inventory Management Portal</h1>
-            <p>Upload and manage pharmaceutical inventory data</p>
+            <h1>📦 Distributor Inventory Management</h1>
+            <p>Upload and manage pharmaceutical distributor inventory data</p>
         </div>
 
         <div class="stats-grid" id="stats">
             <div class="stat-card primary">
-                <div class="label">Primary Inventory (df_b)</div>
-                <div class="value" id="df-b-count">-</div>
-            </div>
-            <div class="stat-card success">
-                <div class="label">Secondary Inventory (df_c)</div>
-                <div class="value" id="df-c-count">-</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Total Items</div>
+                <div class="label">Total Inventory Items</div>
                 <div class="value" id="total-count">-</div>
             </div>
+            <div class="stat-card success">
+                <div class="label">Distributors</div>
+                <div class="value" id="distributor-count">-</div>
+            </div>
+        </div>
+
+        <div class="distributor-breakdown" id="distributor-breakdown" style="display: none;">
+            <h3>📊 Inventory by Distributor</h3>
+            <div id="distributor-list"></div>
         </div>
 
         <div id="alert" class="alert"></div>
 
         <div class="upload-section">
-            <h2>📤 Upload Inventory CSV</h2>
+            <h2>📤 Upload Distributor Inventory CSV</h2>
+            
+            <div class="info-box">
+                <strong>Important:</strong> Your CSV file must include a <strong>"distributor"</strong> column to identify which distributor the inventory belongs to. All distributors are stored in the same table.
+            </div>
             
             <form id="upload-form" class="upload-form">
                 <div class="form-group">
@@ -352,20 +405,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Target Table</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="table-b" name="table" value="df_b" checked>
-                            <label for="table-b">Primary Inventory (df_b)</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="table-c" name="table" value="df_c">
-                            <label for="table-c">Secondary Inventory (df_c)</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label>Upload Mode</label>
                     <div class="radio-group">
                         <div class="radio-option">
@@ -374,7 +413,7 @@
                         </div>
                         <div class="radio-option">
                             <input type="radio" id="mode-replace" name="mode" value="replace">
-                            <label for="mode-replace">Replace (clear and upload)</label>
+                            <label for="mode-replace">Replace (clear all and upload)</label>
                         </div>
                     </div>
                 </div>
@@ -386,10 +425,9 @@
 
             <div class="danger-zone">
                 <h4>⚠️ Danger Zone</h4>
-                <p style="color: #742a2a; margin-bottom: 15px;">Permanently delete inventory tables. This action cannot be undone.</p>
+                <p style="color: #742a2a; margin-bottom: 15px;">Permanently delete all distributor inventory data. This action cannot be undone.</p>
                 <div class="button-group">
-                    <button class="btn btn-danger" onclick="clearTable('df_b')">Clear df_b</button>
-                    <button class="btn btn-danger" onclick="clearTable('df_c')">Clear df_c</button>
+                    <button class="btn btn-danger" onclick="clearInventory()">Clear All Inventory</button>
                 </div>
             </div>
         </div>
@@ -412,13 +450,41 @@
                 const response = await fetch(`${API_BASE_URL}/api/inventory/status`);
                 const data = await response.json();
 
-                document.getElementById('df-b-count').textContent = data.df_b.row_count.toLocaleString();
-                document.getElementById('df-c-count').textContent = data.df_c.row_count.toLocaleString();
-                document.getElementById('total-count').textContent = data.total_inventory.toLocaleString();
+                // Update total count
+                document.getElementById('total-count').textContent = data.row_count.toLocaleString();
+
+                // Update distributor count and breakdown
+                const distributorCounts = data.distributor_counts || {};
+                const numDistributors = Object.keys(distributorCounts).length;
+                document.getElementById('distributor-count').textContent = numDistributors;
+
+                // Show distributor breakdown if data exists
+                if (numDistributors > 0) {
+                    document.getElementById('distributor-breakdown').style.display = 'block';
+                    renderDistributorBreakdown(distributorCounts);
+                } else {
+                    document.getElementById('distributor-breakdown').style.display = 'none';
+                }
             } catch (error) {
                 console.error('Error loading status:', error);
                 showAlert('Failed to load inventory status', 'error');
             }
+        }
+
+        // Render distributor breakdown
+        function renderDistributorBreakdown(distributorCounts) {
+            const listDiv = document.getElementById('distributor-list');
+            
+            // Sort by count descending
+            const sorted = Object.entries(distributorCounts)
+                .sort((a, b) => b[1] - a[1]);
+
+            listDiv.innerHTML = sorted.map(([name, count]) => `
+                <div class="distributor-item">
+                    <div class="name">${name}</div>
+                    <div class="count">${count.toLocaleString()}</div>
+                </div>
+            `).join('');
         }
 
         // File input handling
@@ -449,7 +515,6 @@
                 return;
             }
 
-            const tableName = document.querySelector('input[name="table"]:checked').value;
             const mode = document.querySelector('input[name="mode"]:checked').value;
 
             const uploadBtn = document.getElementById('upload-btn');
@@ -459,7 +524,6 @@
             try {
                 const formData = new FormData();
                 formData.append('file', file);
-                formData.append('table_name', tableName);
                 formData.append('mode', mode);
 
                 const response = await fetch(`${API_BASE_URL}/api/inventory/upload`, {
@@ -475,9 +539,9 @@
                     // Add to history
                     addToHistory({
                         message: result.message,
-                        table: tableName,
                         rows: result.rows_uploaded,
                         total: result.total_rows,
+                        distributors: Object.keys(result.distributor_counts || {}).join(', '),
                         timestamp: new Date().toLocaleString()
                     });
 
@@ -500,9 +564,9 @@
             }
         });
 
-        // Clear table
-        async function clearTable(tableName) {
-            if (!confirm(`Are you sure you want to permanently delete all data in ${tableName}? This cannot be undone.`)) {
+        // Clear inventory
+        async function clearInventory() {
+            if (!confirm('Are you sure you want to permanently delete ALL distributor inventory data? This cannot be undone.')) {
                 return;
             }
 
@@ -511,8 +575,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ table_name: tableName })
+                    }
                 });
 
                 const result = await response.json();
@@ -520,8 +583,7 @@
                 if (result.success) {
                     showAlert(result.message, 'success');
                     addToHistory({
-                        message: `Cleared table ${tableName}`,
-                        table: tableName,
+                        message: 'Cleared all distributor inventory',
                         timestamp: new Date().toLocaleString()
                     });
                     loadStatus();
@@ -529,7 +591,7 @@
                     showAlert(result.error, 'error');
                 }
             } catch (error) {
-                showAlert('Failed to clear table: ' + error.message, 'error');
+                showAlert('Failed to clear inventory: ' + error.message, 'error');
             }
         }
 
@@ -567,7 +629,8 @@
                     <div class="time">${item.timestamp}</div>
                     <div class="details">
                         ${item.message}
-                        ${item.rows ? `<br><small>${item.rows} rows uploaded, ${item.total} total rows in ${item.table}</small>` : ''}
+                        ${item.rows ? `<br><small>${item.rows} rows uploaded, ${item.total} total rows</small>` : ''}
+                        ${item.distributors ? `<br><small>Distributors: ${item.distributors}</small>` : ''}
                     </div>
                 </div>
             `).join('');
