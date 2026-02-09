@@ -343,11 +343,12 @@
         let currentTab = 'exact';
         let currentFilter = 'all';
         let currentPage = 1;
+        const API_BASE_URL = 'https://your-railway-app.railway.app';
 
         // Load summary stats
         async function loadStats() {
             try {
-                const response = await fetch('/api/summary');
+                const response = await fetch(`${API_BASE_URL}/api/summary`);
                 const data = await response.json();
                 
                 document.getElementById('stats').innerHTML = `
@@ -387,7 +388,7 @@
             content.innerHTML = '<div class="loading">Loading...</div>';
             
             try {
-                const response = await fetch(`/api/exact-matches?page=${page}`);
+                const response = await fetch(`${API_BASE_URL}/api/exact-matches?page=${page}`);
                 const result = await response.json();
                 
                 if (result.data.length === 0) {
