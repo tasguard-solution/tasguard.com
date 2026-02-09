@@ -438,7 +438,7 @@
             content.innerHTML = '<div class="loading">Loading...</div>';
             
             try {
-                const response = await fetch(`/api/validated-substitutes?page=${page}&filter=${filter}`);
+                const response = await fetch(`${API_BASE_URL}/api/validated-substitutes?page=${page}&filter=${filter}`);
                 const result = await response.json();
                 
                 if (result.data.length === 0) {
@@ -490,7 +490,7 @@
             content.innerHTML = '<div class="loading">Loading...</div>';
             
             try {
-                const response = await fetch(`/api/no-matches?page=${page}&filter=${filter}`);
+                const response = await fetch(`${API_BASE_URL}/api/no-matches?page=${page}&filter=${filter}`);
                 const result = await response.json();
                 
                 if (result.data.length === 0) {
