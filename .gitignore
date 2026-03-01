@@ -11,7 +11,7 @@ __pycache__/
 env/
 ENV/
 
-
+/node_modules/
 
 
 # Environment Variables (CRITICAL - Never commit these!)
