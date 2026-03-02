@@ -7,7 +7,7 @@ export function Team() {
       name: "Anointing Tamunowunari-Tasker",
       role: "Founder & CEO",
       bio: "Leading TASGUARD Solutions to deliver innovative software products that make a difference.",
-      website: "https://tasguard.com", // Replace with your actual website
+      website: "https://anoining.tasguard.com", // Replace with your actual website
       email: "contact@tasguard.com",
       linkedin: "",
       github: "",
