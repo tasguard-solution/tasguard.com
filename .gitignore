@@ -12,6 +12,7 @@ env/
 ENV/
 
 /node_modules/
+node_modules/
 
 
 # Environment Variables (CRITICAL - Never commit these!)
