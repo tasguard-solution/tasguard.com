@@ -1,4 +1,4 @@
-# Copilot agent instructions — TASGUARD web front-end
+# Copilot agent instructions — Tasguard.com web front-end
 
 Purpose: help an AI coding agent become productive quickly in this repository (Vite + React frontend).
 

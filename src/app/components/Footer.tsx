@@ -6,7 +6,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-blue-400">TASGUARD</span> Solutions
+              <span className="text-blue-400">Tasguard</span> Solutions
             </h3>
             <p className="text-gray-400">
               Delivering innovative software solutions to empower your business.
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} TASGUARD Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Tasguard Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>

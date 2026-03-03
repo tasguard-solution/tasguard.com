@@ -9,7 +9,7 @@ export function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold mb-6">Our Services</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Discover the powerful software solutions that TASGUARD Solutions brings to your business
+            Discover the powerful software solutions that Tasguard Solutions brings to your business
           </p>
         </div>
       </section>
@@ -24,10 +24,10 @@ export function Services() {
               </div>
               <h2 className="text-4xl font-bold mb-6">Attendix</h2>
               <p className="text-xl text-gray-600 mb-8">
-                Our flagship attendance management system designed to streamline workforce tracking, 
+                Our flagship attendance management system designed to streamline workforce tracking,
                 time management, and reporting for organizations of all sizes.
               </p>
-              
+
               <h3 className="text-2xl font-semibold mb-4">Key Features:</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
@@ -80,10 +80,10 @@ export function Services() {
               </div>
               <h2 className="text-4xl font-bold mb-6">Animator Trigger Controller (ATC)</h2>
               <p className="text-xl text-gray-600 mb-8">
-                A sophisticated animation control system designed for game developers, animators, 
+                A sophisticated animation control system designed for game developers, animators,
                 and creative professionals who need precise control over complex animation sequences.
               </p>
-              
+
               <h3 className="text-2xl font-semibold mb-4">Key Features:</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
@@ -116,7 +116,7 @@ export function Services() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Choose TASGUARD Solutions?</h2>
+            <h2 className="text-4xl font-bold mb-4">Why Choose Tasguard Solutions?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We're committed to delivering excellence in every project
             </p>

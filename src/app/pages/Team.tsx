@@ -6,7 +6,7 @@ export function Team() {
     {
       name: "Anointing Tamunowunari-Tasker",
       role: "Founder & CEO",
-      bio: "Leading TASGUARD Solutions to deliver innovative software products that make a difference.",
+      bio: "Leading Tasguard Solutions to deliver innovative software products that make a difference.",
       website: "https://anointing.tasguard.com", // Replace with your actual website
       email: "[EMAIL_ADDRESS]",
       linkedin: "",
@@ -22,7 +22,7 @@ export function Team() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold mb-6">Meet Our Team</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            The talented people behind TASGUARD Solutions
+            The talented people behind Tasguard Solutions
           </p>
         </div>
       </section>
@@ -125,7 +125,7 @@ export function Team() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              What drives us at TASGUARD Solutions
+              What drives us at Tasguard Solutions
             </p>
           </div>
 

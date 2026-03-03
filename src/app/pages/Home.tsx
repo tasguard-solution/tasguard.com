@@ -27,7 +27,7 @@ export function Home() {
                 Innovative Software Solutions for Your Business
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                TASGUARD Solutions delivers cutting-edge software that empowers companies to work smarter and achieve more.
+                Tasguard Solutions delivers cutting-edge software that empowers companies to work smarter and achieve more.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -64,7 +64,7 @@ export function Home() {
               Who We Are
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              TASGUARD Solutions is a registered solutions-based business specializing in software development. 
+              Tasguard Solutions is a registered solutions-based business specializing in software development.
               We create innovative tools and systems that solve real-world problems for companies of all sizes.
             </p>
           </div>
@@ -147,7 +147,7 @@ export function Home() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Let's discuss how TASGUARD Solutions can help you achieve your goals
+            Let's discuss how Tasguard Solutions can help you achieve your goals
           </p>
           <Link
             to="/team"

@@ -1,7 +1,7 @@
 
-  # Business website front page
+  # Tasguard Solutions website
 
-  This is a code bundle for Business website front page. The original project is available at https://www.figma.com/design/SrNxQmW7nOeiDMEhd7Ts1Y/Business-website-front-page.
+  This is a code bundle for Tasguard Solutions website. The original project is available at https://www.figma.com/design/SrNxQmW7nOeiDMEhd7Ts1Y/Business-website-front-page.
 
   ## Running the code
 

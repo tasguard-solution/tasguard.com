@@ -34,7 +34,7 @@ export function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600">TASGUARD</span>
+            <span className="text-2xl font-bold text-blue-600">Tasguard</span>
             <span className="text-2xl font-light text-gray-700 ml-1">Solutions</span>
           </Link>
 
@@ -58,8 +58,8 @@ export function Header() {
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
                 className={`flex items-center gap-1 transition-colors ${isActive("/services")
-                    ? "text-blue-600 font-semibold"
-                    : "text-gray-700 hover:text-blue-600"
+                  ? "text-blue-600 font-semibold"
+                  : "text-gray-700 hover:text-blue-600"
                   }`}
               >
                 Services
@@ -101,8 +101,8 @@ export function Header() {
             <Link
               to="/team"
               className={`transition-colors ${isActive("/team")
-                  ? "text-blue-600 font-semibold"
-                  : "text-gray-700 hover:text-blue-600"
+                ? "text-blue-600 font-semibold"
+                : "text-gray-700 hover:text-blue-600"
                 }`}
             >
               Team
@@ -138,8 +138,8 @@ export function Header() {
             <button
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
               className={`flex items-center justify-between w-full py-2 transition-colors ${isActive("/services")
-                  ? "text-blue-600 font-semibold"
-                  : "text-gray-700 hover:text-blue-600"
+                ? "text-blue-600 font-semibold"
+                : "text-gray-700 hover:text-blue-600"
                 }`}
             >
               Services
@@ -182,8 +182,8 @@ export function Header() {
               to="/team"
               onClick={() => setMobileMenuOpen(false)}
               className={`block py-2 transition-colors ${isActive("/team")
-                  ? "text-blue-600 font-semibold"
-                  : "text-gray-700 hover:text-blue-600"
+                ? "text-blue-600 font-semibold"
+                : "text-gray-700 hover:text-blue-600"
                 }`}
             >
               Team
