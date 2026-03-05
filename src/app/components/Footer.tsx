@@ -39,7 +39,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <p className="text-gray-400">
-              Website: <a href="https://tasguard.com" className="hover:text-white transition-colors">tasguard.com</a>
+              Email: <a href="mailto:hello@tasguard.com" className="hover:text-white transition-colors">tasguard.com</a>
             </p>
           </div>
         </div>

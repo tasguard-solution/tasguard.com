@@ -8,7 +8,7 @@ export function Team() {
       role: "Founder & CEO",
       bio: "Leading Tasguard Solutions to deliver innovative software products that make a difference.",
       website: "https://anointing.tasguard.com", // Replace with your actual website
-      email: "[EMAIL_ADDRESS]",
+      email: "tasker@tasguard.com",
       linkedin: "",
       github: "",
     },
@@ -96,25 +96,6 @@ export function Team() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Note for customization */}
-          <div className="mt-16 bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Customize Your Team</h3>
-            <p className="text-gray-700 mb-4">
-              To add your personal information and team members, edit the{" "}
-              <code className="bg-white px-2 py-1 rounded text-blue-600">
-                teamMembers
-              </code>{" "}
-              array in{" "}
-              <code className="bg-white px-2 py-1 rounded text-blue-600">
-                /src/app/pages/Team.tsx
-              </code>
-            </p>
-            <p className="text-gray-600">
-              You can add your name, role, bio, website link, email, LinkedIn,
-              and GitHub profiles.
-            </p>
           </div>
         </div>
       </section>
