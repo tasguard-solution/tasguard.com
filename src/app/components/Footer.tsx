@@ -1,51 +1,53 @@
+import "./Footer.css";
+
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="footer mt-auto">
+      <div className="footer-content">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">
-              <span className="text-blue-400">Tasguard</span> Solutions
-            </h3>
-            <p className="text-gray-400">
+            <div className="flex items-center gap-3 mb-2">
+              <img src="/logo.png" alt="Tasguard Logo" className="w-10 h-10 object-contain" />
+              <h3 className="footer-logo m-0">
+                <span className="accent text-[#E6FC00]">Tasguard</span> Solutions
+              </h3>
+            </div>
+            <p className="footer-text opacity-80 border-l-4 border-[var(--orange)] pl-3 mt-4">
               Delivering innovative software solutions to empower your business.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="/" className="hover:text-white transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="hover:text-white transition-colors">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="/team" className="hover:text-white transition-colors">
-                  Team
-                </a>
-              </li>
-            </ul>
+            <h4 className="footer-heading">Quick Links</h4>
+            <div>
+              <a href="/" className="footer-link">
+                Home
+              </a>
+              <a href="/services" className="footer-link">
+                Services
+              </a>
+              <a href="/team" className="footer-link">
+                Team
+              </a>
+            </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <p className="text-gray-400">
-              Email: <a href="mailto:hello@tasguard.com" className="hover:text-white transition-colors">tasguard.com</a>
-            </p>
+            <h4 className="footer-heading">Contact</h4>
+            <div className="footer-text">
+              Email: 
+              <br/>
+              <a href="mailto:hello@tasguard.com" className="footer-link hover:text-[var(--orange)] mt-1">tasguard.com</a>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Tasguard Solutions. All rights reserved.</p>
+        <div className="footer-strip">
+          <p>&copy; {new Date().getFullYear()} Tasguard Solutions</p>
+          <p>Built with intention</p>
         </div>
       </div>
     </footer>

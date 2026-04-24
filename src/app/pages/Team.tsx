@@ -1,13 +1,13 @@
 import { ExternalLink, Mail, Linkedin, Github } from "lucide-react";
+import "./Team.css";
 
 export function Team() {
-  // You can customize this section with your personal information
   const teamMembers = [
     {
       name: "Anointing Tamunowunari-Tasker",
       role: "Founder & CEO",
       bio: "Leading Tasguard Solutions to deliver innovative software products that make a difference.",
-      website: "https://anointing.tasguard.com", // Replace with your actual website
+      website: "https://anointing.tasguard.com", 
       email: "tasker@tasguard.com",
       linkedin: "",
       github: "",
@@ -16,81 +16,54 @@ export function Team() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Meet Our Team</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            The talented people behind Tasguard Solutions
+      <section className="team-hero">
+        <div className="team-hero-content">
+          <h1 className="section-title text-[var(--dark-text)] mb-6">Meet Our Team</h1>
+          <p className="text-xl max-w-3xl mx-auto opacity-80 border-l-4 border-[var(--orange)] pl-4 text-left inline-block">
+            The talented and driven people behind Tasguard Solutions
           </p>
         </div>
       </section>
 
       {/* Team Members Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="neu-section bg-[var(--bg)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="neu-grid" style={{ marginTop: '0' }}>
             {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
-              >
-                {/* Avatar Placeholder */}
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
+              <div key={index} className="team-card bg-white">
+                <div className="team-avatar">
                   {member.name.charAt(0)}
                 </div>
 
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-blue-600 font-semibold mb-4">
+                <div>
+                  <h3 className="team-name">{member.name}</h3>
+                  <div className="team-role">
                     {member.role}
-                  </p>
-                  <p className="text-gray-600">{member.bio}</p>
+                  </div>
+                  <p className="team-bio">{member.bio}</p>
                 </div>
 
-                {/* Contact Links */}
-                <div className="border-t border-gray-200 pt-6 space-y-3">
+                <div className="team-links">
                   {member.website && (
-                    <a
-                      href={member.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5 mr-2" />
-                      Personal Website
+                    <a href={member.website} target="_blank" rel="noopener noreferrer" className="team-link-item">
+                      <ExternalLink className="w-5 h-5" /> Website
                     </a>
                   )}
                   {member.email && (
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="flex items-center justify-center text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      <Mail className="w-5 h-5 mr-2" />
-                      Email
+                    <a href={`mailto:${member.email}`} className="team-link-item">
+                      <Mail className="w-5 h-5" /> Email
                     </a>
                   )}
                   {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      <Linkedin className="w-5 h-5 mr-2" />
-                      LinkedIn
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="team-link-item">
+                      <Linkedin className="w-5 h-5" /> LinkedIn
                     </a>
                   )}
                   {member.github && (
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      <Github className="w-5 h-5 mr-2" />
-                      GitHub
+                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="team-link-item">
+                      <Github className="w-5 h-5" /> GitHub
                     </a>
                   )}
                 </div>
@@ -101,35 +74,33 @@ export function Team() {
       </section>
 
       {/* Company Culture Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              What drives us at Tasguard Solutions
-            </p>
+      <section className="neu-section light text-center">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <h2 className="section-title">Our Values</h2>
+            <div className="accent-bar mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-2xl font-semibold mb-4">Innovation</h3>
-              <p className="text-gray-600">
+          <div className="neu-grid" style={{ marginTop: 0 }}>
+            <div className="neu-card">
+              <h3 className="neu-card-title text-3xl">Innovation</h3>
+              <p className="neu-card-desc">
                 We constantly push boundaries to create cutting-edge solutions
-                that solve real problems
+                that solve real problems.
               </p>
             </div>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-2xl font-semibold mb-4">Quality</h3>
-              <p className="text-gray-600">
+            <div className="neu-card">
+              <h3 className="neu-card-title text-3xl">Quality</h3>
+              <p className="neu-card-desc">
                 Every product we deliver meets the highest standards of
-                excellence and reliability
+                excellence and reliability.
               </p>
             </div>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-2xl font-semibold mb-4">Partnership</h3>
-              <p className="text-gray-600">
+            <div className="neu-card">
+              <h3 className="neu-card-title text-3xl">Partnership</h3>
+              <p className="neu-card-desc">
                 We work closely with our clients to ensure their success is our
-                success
+                success.
               </p>
             </div>
           </div>

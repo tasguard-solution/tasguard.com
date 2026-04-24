@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import "./Header.css";
 
 const servicesDropdownItems = [
   { name: "All Services", path: "/services" },
@@ -29,118 +30,106 @@ export function Header() {
   }, []);
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600">Tasguard</span>
-            <span className="text-2xl font-light text-gray-700 ml-1">Solutions</span>
-          </Link>
+    <header className="topbar sticky top-0 z-50">
+      {/* Logo */}
+      <Link to="/" className="topbar-logo flex items-center">
+        <img src="/logo-big.svg" alt="Tasguard Logo" className="w-12 h-12 mr-2 object-contain" />
+        <text className="tasguard">Tasguard</text><span>Solutions</span>
+      </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/"
-              className={`transition-colors ${isActive("/") ? "text-blue-600 font-semibold" : "text-gray-700 hover:text-blue-600"
-                }`}
-            >
-              Home
-            </Link>
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex items-center space-x-8">
+        <Link
+          to="/"
+          className={`topbar-link ${isActive("/") ? "active" : ""}`}
+        >
+          Home
+        </Link>
 
-            {/* Services Dropdown */}
-            <div
-              ref={dropdownRef}
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className={`flex items-center gap-1 transition-colors ${isActive("/services")
-                  ? "text-blue-600 font-semibold"
-                  : "text-gray-700 hover:text-blue-600"
-                  }`}
-              >
-                Services
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {servicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56">
-                  <div className="bg-white rounded-lg shadow-lg border border-gray-200 py-2 overflow-hidden">
-                    {servicesDropdownItems.map((item) =>
-                      item.href ? (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                        >
-                          {item.name}
-                        </a>
-                      ) : (
-                        <Link
-                          key={item.name}
-                          to={item.path!}
-                          onClick={() => setServicesOpen(false)}
-                          className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                        >
-                          {item.name}
-                        </Link>
-                      )
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link
-              to="/team"
-              className={`transition-colors ${isActive("/team")
-                ? "text-blue-600 font-semibold"
-                : "text-gray-700 hover:text-blue-600"
-                }`}
-            >
-              Team
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
+        {/* Services Dropdown */}
+        <div
+          ref={dropdownRef}
+          className="relative"
+          onMouseEnter={() => setServicesOpen(true)}
+          onMouseLeave={() => setServicesOpen(false)}
+        >
           <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setServicesOpen(!servicesOpen)}
+            className={`flex items-center gap-1 topbar-link ${isActive("/services") ? "active" : ""}`}
+            style={{ border: "none", background: "none", cursor: "pointer" }}
           >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
-            )}
+            Services
+            <ChevronDown
+              className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+            />
           </button>
+
+          {servicesOpen && (
+            <div className="topbar-dropdown">
+              <div className="dropdown-menu">
+                {servicesDropdownItems.map((item) =>
+                  item.href ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="dropdown-item"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.path!}
+                      onClick={() => setServicesOpen(false)}
+                      className="dropdown-item"
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden pb-4">
-            <Link
-              to="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block py-2 transition-colors ${isActive("/") ? "text-blue-600 font-semibold" : "text-gray-700 hover:text-blue-600"
-                }`}
-            >
-              Home
-            </Link>
+        <Link
+          to="/team"
+          className={`topbar-link ${isActive("/team") ? "active" : ""}`}
+        >
+          Team
+        </Link>
+      </nav>
 
-            {/* Mobile Services Accordion */}
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden p-2 text-black cursor-pointer bg-transparent border-none"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? (
+          <X className="w-8 h-8" />
+        ) : (
+          <Menu className="w-8 h-8" />
+        )}
+      </button>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[var(--bg)] border-b-2 border-black p-4 z-40 flex flex-col gap-4 shadow-lg">
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`topbar-link ${isActive("/") ? "active" : ""}`}
+          >
+            Home
+          </Link>
+
+          {/* Mobile Services Accordion */}
+          <div className="flex flex-col gap-2">
             <button
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className={`flex items-center justify-between w-full py-2 transition-colors ${isActive("/services")
-                ? "text-blue-600 font-semibold"
-                : "text-gray-700 hover:text-blue-600"
-                }`}
+              className={`flex items-center justify-between w-full topbar-link bg-transparent border-none cursor-pointer p-0 ${isActive("/services") ? "active" : ""}`}
             >
               Services
               <ChevronDown
@@ -148,7 +137,7 @@ export function Header() {
               />
             </button>
             {mobileServicesOpen && (
-              <div className="pl-4 border-l-2 border-blue-200 ml-2">
+              <div className="pl-4 border-l-2 border-black ml-2 mt-2 flex flex-col gap-2">
                 {servicesDropdownItems.map((item) =>
                   item.href ? (
                     <a
@@ -157,7 +146,7 @@ export function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="topbar-link text-xs opacity-75 inline-block"
                     >
                       {item.name}
                     </a>
@@ -169,7 +158,7 @@ export function Header() {
                         setMobileMenuOpen(false);
                         setMobileServicesOpen(false);
                       }}
-                      className="block py-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="topbar-link text-xs opacity-75 inline-block"
                     >
                       {item.name}
                     </Link>
@@ -177,20 +166,17 @@ export function Header() {
                 )}
               </div>
             )}
-
-            <Link
-              to="/team"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block py-2 transition-colors ${isActive("/team")
-                ? "text-blue-600 font-semibold"
-                : "text-gray-700 hover:text-blue-600"
-                }`}
-            >
-              Team
-            </Link>
           </div>
-        )}
-      </nav>
+
+          <Link
+            to="/team"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`topbar-link ${isActive("/team") ? "active" : ""}`}
+          >
+            Team
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

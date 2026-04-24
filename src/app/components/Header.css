@@ -1,0 +1,83 @@
+.topbar {
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    background: var(--bg);
+}
+
+.topbar-logo {
+    font-family: var(--heading);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.topbar-logo span {
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+.tasguard {
+    font-weight: bold;
+    opacity: 1;
+}
+
+.topbar-link {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.topbar-link:hover,
+.topbar-link.active {
+    color: var(--orange);
+}
+
+/* Services Dropdown specific */
+.topbar-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 0.5rem;
+    width: 14rem;
+    z-index: 50;
+}
+
+.dropdown-menu {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    box-shadow: 4px 4px 0 var(--border);
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.15s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--orange);
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        padding: 1.2rem 1.5rem;
+    }
+}
