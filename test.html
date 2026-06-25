@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tasguard - Premium Software Solutions for Modern Enterprises</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Geist:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Geist', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#c5ebd7",
+                        "surface-container-low": "#1a1c1d",
+                        "surface-container-lowest": "#0c0e0f",
+                        "on-secondary-fixed": "#191c1d",
+                        "surface-dim": "#121415",
+                        "on-secondary-fixed-variant": "#444748",
+                        "tertiary": "#aacfbc",
+                        "on-tertiary-fixed-variant": "#2c4d3f",
+                        "outline": "#8b938c",
+                        "inverse-surface": "#e2e2e3",
+                        "surface": "#121415",
+                        "secondary-container": "#444748",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#a8cdba",
+                        "on-primary-fixed-variant": "#224f39",
+                        "secondary": "#c5c7c8",
+                        "on-secondary-container": "#b3b5b6",
+                        "on-background": "#e2e2e3",
+                        "primary-container": "#2d5a43",
+                        "primary": "#a1d1b4",
+                        "on-primary-fixed": "#002112",
+                        "on-surface-variant": "#c0c9c1",
+                        "inverse-primary": "#3a674f",
+                        "tertiary-fixed-dim": "#aacfbc",
+                        "surface-tint": "#a1d1b4",
+                        "primary-fixed": "#bceecf",
+                        "surface-bright": "#38393a",
+                        "secondary-fixed": "#e1e3e4",
+                        "surface-container-high": "#282a2b",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#333536",
+                        "on-tertiary-fixed": "#002115",
+                        "on-primary-container": "#9fcfb2",
+                        "background": "#121415",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#a1d1b4",
+                        "on-surface": "#e2e2e3",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "on-tertiary": "#153629",
+                        "tertiary-container": "#375849",
+                        "outline-variant": "#414943",
+                        "surface-container": "#1e2021",
+                        "on-secondary": "#2e3132",
+                        "surface-variant": "#333536",
+                        "inverse-on-surface": "#2f3132",
+                        "on-primary": "#063824",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-sm": ["Geist"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopNavBar -->
+    <nav
+        class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl text-primary dark:text-primary font-label-md text-label-md fixed top-0 w-full z-50 border-b border-white/10 flat no shadows">
+        <div
+            class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+            <div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Tasguard</div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md"
+                    href="#">Services</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md"
+                    href="#">Team</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md"
+                    href="#">About</a>
+                <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md"
+                    href="#">Contact</a>
+            </div>
+            <button
+                class="bg-primary-container text-on-primary-container px-6 py-2 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors duration-300 hidden md:block">
+                Get Started
+            </button>
+            <button class="md:hidden text-on-surface">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto space-y-32">
+        <!-- Hero Section: Structured & Clean -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8 z-10 relative">
+                <div
+                    class="inline-block px-3 py-1 border border-outline/30 rounded-full font-label-sm text-label-sm text-primary mb-4 bg-surface-container/50 backdrop-blur-sm">
+                    Enterprise Grade Architecture
+                </div>
+                <h1 class="font-headline-xl text-headline-xl text-on-surface max-w-2xl leading-tight">
+                    Premium Software Solutions for Modern Enterprises
+                </h1>
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                    We architect, build, and scale resilient digital infrastructure for discerning organizations that
+                    demand technical mastery and strategic precision.
+                </p>
+                <div class="flex gap-4 pt-4">
+                    <button
+                        class="bg-primary-container text-on-primary-container px-8 py-3 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+                        Explore Services
+                    </button>
+                    <button
+                        class="border border-outline/50 text-on-surface px-8 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 bg-transparent">
+                        View Process
+                    </button>
+                </div>
+            </div>
+            <!-- Hero Graphic (Abstract Geometric/Architectural representation) -->
+            <div
+                class="relative h-[500px] w-full rounded-xl overflow-hidden border border-outline/10 bg-surface-container-low group">
+                <div class="absolute inset-0 bg-gradient-to-br from-surface-container to-surface-container-lowest z-0">
+                </div>
+                <!-- Abstract Technical Grid Pattern -->
+                <div class="absolute inset-0 z-10 opacity-20"
+                    style="background-image: radial-gradient(#8b938c 1px, transparent 1px); background-size: 24px 24px;">
+                </div>
+                <!-- Glowing Core -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 blur-[100px] rounded-full z-20 group-hover:bg-primary/20 transition-all duration-1000">
+                </div>
+                <!-- Foreground Architectural Elements (CSS constructed for performance/cleanliness) -->
+                <div class="absolute inset-0 flex items-center justify-center z-30">
+                    <div class="relative w-64 h-64">
+                        <div
+                            class="absolute inset-0 border border-primary/30 rotate-45 transform transition-transform duration-700 group-hover:rotate-90">
+                        </div>
+                        <div class="absolute inset-4 border border-outline/20 rotate-12"></div>
+                        <div
+                            class="absolute inset-8 border border-primary/40 -rotate-12 bg-surface-container-low/50 backdrop-blur-md flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-5xl font-light">code_blocks</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Frame Lines -->
+                <div class="absolute top-0 left-8 w-px h-16 bg-gradient-to-b from-primary/50 to-transparent z-40"></div>
+                <div class="absolute bottom-8 right-0 h-px w-16 bg-gradient-to-l from-primary/50 to-transparent z-40">
+                </div>
+            </div>
+        </section>
+        <!-- Services Section: Detailed Modules -->
+        <section class="space-y-16">
+            <div class="space-y-4">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Core Capabilities</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                    Engineered for resilience and scale, our services span the full lifecycle of enterprise application
+                    development.
+                </p>
+            </div>
+            <!-- Bento Grid Layout for Services -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+                <!-- Service Card 1: Large -->
+                <div
+                    class="md:col-span-2 bg-surface-container-low border border-outline/10 p-8 rounded-lg relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[50px] rounded-full"></div>
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">architecture</span>
+                            <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">System
+                                Architecture</h3>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+                                Design of scalable, fault-tolerant microservices and cloud-native topologies that form
+                                the backbone of modern operations.
+                            </p>
+                        </div>
+                        <a class="font-label-sm text-label-sm text-primary flex items-center gap-2 w-max group-hover:gap-3 transition-all"
+                            href="#">
+                            Learn more <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Service Card 2: Small -->
+                <div
+                    class="bg-surface-container-low border border-outline/10 p-8 rounded-lg relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-3xl mb-4">security</span>
+                            <h3
+                                class="font-label-md text-label-md text-on-surface mb-2 font-bold uppercase tracking-wider">
+                                Security First</h3>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                Integration of zero-trust paradigms and proactive threat modeling into the deployment
+                                pipeline.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500">
+                    </div>
+                </div>
+                <!-- Service Card 3: Small -->
+                <div
+                    class="bg-surface-container-low border border-outline/10 p-8 rounded-lg relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-3xl mb-4">database</span>
+                            <h3
+                                class="font-label-md text-label-md text-on-surface mb-2 font-bold uppercase tracking-wider">
+                                Data Engineering</h3>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                Robust pipelines for high-throughput ingestion, transformation, and analytical querying.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service Card 4: Medium/Wide -->
+                <div
+                    class="md:col-span-2 bg-surface-container-low border border-outline/10 p-8 rounded-lg relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 flex items-center justify-between">
+                    <div class="relative z-10 max-w-md">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-4">terminal</span>
+                        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Custom
+                            Development</h3>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Precision-crafted software utilizing modern stacks (React, Node, Go) tailored to unique
+                            business logic.
+                        </p>
+                    </div>
+                    <div
+                        class="hidden md:block w-32 h-32 border-2 border-dashed border-outline/20 rounded-full flex items-center justify-center animate-[spin_60s_linear_infinite]">
+                        <div class="w-16 h-16 border border-primary/40 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Section: Consult, Develop, Deploy -->
+        <section class="py-16 border-y border-outline/10 relative">
+            <div
+                class="absolute left-0 top-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent">
+            </div>
+            <div class="text-center mb-16 space-y-4">
+                <span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Methodology</span>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">The Tasguard Framework</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div
+                    class="hidden md:block absolute top-1/2 left-1/4 right-1/4 h-px bg-outline/20 -translate-y-1/2 z-0">
+                </div>
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center space-y-6">
+                    <div
+                        class="w-16 h-16 rounded-full bg-surface-container-high border border-primary/30 flex items-center justify-center text-primary font-label-md">
+                        01</div>
+                    <div>
+                        <h4 class="font-label-md text-label-md text-on-surface font-bold uppercase mb-2">Consult</h4>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Deep architectural review and
+                            requirement mapping.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center space-y-6">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-container border border-primary flex items-center justify-center text-on-primary-container font-label-md shadow-[0_0_20px_rgba(45,90,67,0.3)]">
+                        02</div>
+                    <div>
+                        <h4 class="font-label-md text-label-md text-on-surface font-bold uppercase mb-2">Develop</h4>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Iterative, test-driven engineering
+                            cycles.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center space-y-6">
+                    <div
+                        class="w-16 h-16 rounded-full bg-surface-container-high border border-primary/30 flex items-center justify-center text-primary font-label-md">
+                        03</div>
+                    <div>
+                        <h4 class="font-label-md text-label-md text-on-surface font-bold uppercase mb-2">Deploy</h4>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Automated rollouts and continuous
+                            monitoring.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary dark:text-primary font-body-sm text-body-sm w-full border-t border-white/5 flat no shadows">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="col-span-1 md:col-span-1 space-y-4">
+                <div class="font-headline-lg text-headline-lg font-bold text-on-surface">Tasguard</div>
+                <p class="text-on-surface-variant mt-4">Precision software engineering for modern enterprises.</p>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-widest mb-4">Company
+                </h4>
+                <ul class="space-y-2">
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">Services</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">Team</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">About</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-widest mb-4">Legal
+                </h4>
+                <ul class="space-y-2">
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">Privacy Policy</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-widest mb-4">Social
+                </h4>
+                <ul class="space-y-2">
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">LinkedIn</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">GitHub</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-on-surface transition-colors"
+                            href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-outline/10 py-6 text-center text-on-surface-variant font-label-sm">
+            © 2024 Tasguard Software Solutions. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

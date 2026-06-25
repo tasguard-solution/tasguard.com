@@ -1,17 +1,13 @@
-import "./Home.css";
 import { HeroSection } from "./home/components/HeroSection";
-import { AboutSection } from "./home/components/AboutSection";
 import { ProductsSection } from "./home/components/ProductsSection";
-import { CTASection } from "../components/CTASection";
-
+import { ProcessSection } from "./home/components/ProcessSection";
 
 export function Home() {
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col space-y-32">
       <HeroSection />
-      <AboutSection />
       <ProductsSection />
-      <CTASection />
+      <ProcessSection />
     </div>
   );
 }
